@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11822ecf-9dd4-4745-8475-11fe423caed8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Chess/Grid/Grid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Grid/GridCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Grid/GridCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Grid/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Grid/Observer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Move/MoveRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Move/MoveRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Move/MoveType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Move/MoveType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Piece/Observable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Piece/Observable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Piece/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Piece/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Piece/PieceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Piece/PieceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Piece/PieceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Piece/PieceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Runner.java" afterDir="false" />
-    </list>
+    <list default="true" id="11822ecf-9dd4-4745-8475-11fe423caed8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,6 +94,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/Chess/Grid/Grid.java</url>
           <line>10</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Chess/Grid/Grid.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

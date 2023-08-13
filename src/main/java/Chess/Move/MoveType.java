@@ -1,14 +1,14 @@
 package Chess.Move;
 
 import Chess.Move.MoveGenerator.MoveGeneratorBasedAPI;
-import Chess.Move.MoveGenerator.impl.MGBlank;
+import Chess.Move.MoveGenerator.impl.*;
 
 public enum MoveType {
-    blank(MGBlank),
-    kill(),
-    blank_kill(),
-    jump_blank_kill(),
-    safe_blank_kill();
+    blank(MGBlank.getInstance()),
+    kill(MGKill.getInstance()),
+    blank_kill(MGBlankKill.getInstance()),
+    jump_blank_kill(MGJumpBlankKill.getInstance()),
+    safe_blank_kill(MGSafeBlankKill.getInstance());
 
     private MoveGeneratorBasedAPI moveGeneratorBasedAPI;
 

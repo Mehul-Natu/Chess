@@ -7,16 +7,16 @@ import Chess.Position;
 
 import java.util.Set;
 
-public class MGBlank extends MoveGeneratorBasedAPI {
+public class MGBlankKill extends MoveGeneratorBasedAPI {
 
     public synchronized static MoveGeneratorBasedAPI getInstance() {
         if (instance == null) {
-            instance = new MGBlank();
+            instance = new MGBlankKill();
         }
         return instance;
     }
 
-    private MGBlank() {}
+    private MGBlankKill() {}
 
     @Override
     public void setGrid(Grid grid) {
@@ -25,7 +25,7 @@ public class MGBlank extends MoveGeneratorBasedAPI {
 
     @Override
     public void setxAndyMagnitude(int[] xAndyMagnitude) {
-        setxAndyMagnitude(xAndyMagnitude);
+        this.setxAndyMagnitude(xAndyMagnitude);
     }
 
     @Override

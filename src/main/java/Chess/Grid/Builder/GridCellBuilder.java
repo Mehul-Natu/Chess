@@ -7,6 +7,7 @@ import Chess.Position;
 
 
 import java.util.List;
+import java.util.Set;
 
 
 public class GridCellBuilder implements GridCellBuilderAPI {
@@ -27,7 +28,7 @@ public class GridCellBuilder implements GridCellBuilderAPI {
     }
 
     @Override
-    public GridCellBuilder setListOfObservable(List<Observer> listOfObservable) {
+    public GridCellBuilder setListOfObservable(Set<Observable> listOfObservable) {
         this.gridCell.setListOfObserver(listOfObservable);
         return this;
     }

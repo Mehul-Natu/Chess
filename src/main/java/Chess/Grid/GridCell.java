@@ -1,10 +1,9 @@
 package Chess.Grid;
 
-import Chess.Piece.Piece;
+import Chess.Piece.Observable;
 import Chess.Piece.PieceManager;
 import Chess.Position;
-
-import java.util.List;
+import java.util.Set;
 
 public class GridCell implements Observer {
 
@@ -12,22 +11,22 @@ public class GridCell implements Observer {
 
     PieceManager currentPiece;
 
-    List<Observer> listOfObserver;
+    Set<Observable> listOfPublisher;
 
     public GridCell(Position position) {
         this.position = position;
     }
 
     @Override
-    public void update() {
-
+    public void update(Observable observable) {
+        if (observable)
     }
 
     public void setCurrentPiece(PieceManager currentPiece) {
         this.currentPiece = currentPiece;
     }
 
-    public void setListOfObserver(List<Observer> listOfObserver) {
-        this.listOfObserver = listOfObserver;
+    public void setListOfObserver(Set<Observable> listOfPublisher) {
+        this.listOfPublisher = listOfPublisher;
     }
 }

@@ -1,6 +1,6 @@
-package Piece;
+package Chess.Piece;
 
-import Grid.Observer;
+import Chess.Grid.Observer;
 
 public interface Observable {
 

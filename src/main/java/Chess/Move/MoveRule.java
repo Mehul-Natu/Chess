@@ -1,4 +1,4 @@
-package Move;
+package Chess.Move;
 
 public class MoveRule {
 

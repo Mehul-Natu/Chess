@@ -1,6 +1,6 @@
-package Piece;
+package Chess.Piece;
 
-import Move.MoveRule;
+import Chess.Move.MoveRule;
 import java.util.List;
 
 public class Piece {

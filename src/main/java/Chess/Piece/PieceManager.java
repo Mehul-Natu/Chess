@@ -1,6 +1,6 @@
-package Piece;
+package Chess.Piece;
 
-import Grid.Observer;
+import Chess.Grid.Observer;
 
 import java.util.List;
 import java.util.Set;
@@ -9,13 +9,14 @@ public class PieceManager implements Observable {
 
     Piece piece;
 
-    List<CurrentMoves> currentPlayableMoves;
+    //List<CurrentMoves> currentPlayableMoves;
 
     Set<Observer> gridObservers;
 
 
     @Override
     public void subscribe(Observer observer) {
+
     }
 
     @Override

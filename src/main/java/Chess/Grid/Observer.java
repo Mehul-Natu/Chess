@@ -1,4 +1,4 @@
-package Grid;
+package Chess.Grid;
 
 public interface Observer {
 

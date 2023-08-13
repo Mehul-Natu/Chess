@@ -1,8 +1,8 @@
-package Grid;
+package Chess.Grid;
 
-import Piece.Piece;
+import Chess.Piece.Piece;
+import Chess.Position;
 
-import javax.swing.text.Position;
 import java.util.List;
 
 public class GridCell implements Observer {

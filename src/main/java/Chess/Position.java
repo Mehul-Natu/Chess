@@ -1,9 +1,16 @@
+package Chess;
+
 import java.util.Objects;
 
 public class Position {
 
     private int x;
     private int y;
+
+    public Position(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 
     public int getX() {
         return x;
@@ -35,7 +42,7 @@ public class Position {
 
     @Override
     public String toString() {
-        return "Position { " +
+        return "Chess.Position { " +
                 "x = " + x +
                 ", y = " + y +
                 " }";

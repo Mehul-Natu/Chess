@@ -1,4 +1,4 @@
-package Piece;
+package Chess.Piece;
 
 public enum PieceType {
     BlackKnight,

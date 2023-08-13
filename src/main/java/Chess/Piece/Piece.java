@@ -5,7 +5,20 @@ import java.util.List;
 
 public class Piece {
 
-    PieceType pieceType;
+    final PieceType pieceType;
 
-    List<MoveRule> moveRuleList;
+    final List<MoveRule> moveRuleList;
+
+    public Piece(PieceType pieceType, List<MoveRule> moveRuleList) {
+        this.pieceType = pieceType;
+        this.moveRuleList = moveRuleList;
+    }
+
+    public PieceType getPieceType() {
+        return pieceType;
+    }
+
+    public List<MoveRule> getMoveRuleList() {
+        return moveRuleList;
+    }
 }

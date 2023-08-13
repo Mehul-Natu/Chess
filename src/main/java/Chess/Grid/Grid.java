@@ -1,7 +1,5 @@
 package Chess.Grid;
 
-import Chess.Grid.Builder.GridCellBuilder;
-import Chess.Grid.Builder.GridCellFactory;
 import Chess.Grid.Builder.GridCellFactoryAPI;
 import Chess.Piece.PieceManager;
 import Chess.Position;

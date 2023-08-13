@@ -34,4 +34,7 @@ public class Piece {
     public int hashCode() {
         return Objects.hash(getPieceType(), getMoveRuleList());
     }
+
+
+
 }

@@ -29,4 +29,10 @@ public class GridCell implements Observer {
     public void setListOfObserver(Set<Observable> listOfPublisher) {
         this.listOfPublisher = listOfPublisher;
     }
+
+    public PieceManager getCurrentPiece() {
+        return currentPiece;
+    }
+
+
 }

@@ -20,5 +20,7 @@ public class Runner {
         set.add(new PlayableMove(1, 0, MoveType.blank));
         set.add(new PlayableMove(1, 0, MoveType.kill));
         //System.out.println(set.contains();
+
+        grid.printBoard();
     }
 }

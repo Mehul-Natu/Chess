@@ -33,4 +33,12 @@ public class PieceManager implements Observable {
     public boolean containsPlaybleMove(Position position) {
         return currentPlayableMoves.contains(position);
     }
+
+    public PieceManager(Piece piece) {
+        this.piece = piece;
+    }
+
+    public Piece getPiece() {
+        return piece;
+    }
 }

@@ -1,6 +1,7 @@
 package Chess.Grid;
 
 import Chess.Piece.Piece;
+import Chess.Piece.PieceManager;
 import Chess.Position;
 
 import java.util.List;
@@ -9,7 +10,7 @@ public class GridCell implements Observer {
 
     private final Position position;
 
-    Piece currentPiece;
+    PieceManager currentPiece;
 
     List<Observer> listOfObserver;
 

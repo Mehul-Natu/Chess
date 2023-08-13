@@ -19,7 +19,7 @@ public class GridCell implements Observer {
 
     @Override
     public void update(Observable observable) {
-        if (observable)
+        //if (observable)
     }
 
     public void setCurrentPiece(PieceManager currentPiece) {

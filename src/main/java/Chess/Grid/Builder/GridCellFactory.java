@@ -5,7 +5,7 @@ import Chess.Position;
 
 public class GridCellFactory implements GridCellFactoryAPI {
 
-    GridCellBuilder gridCellBuilder;
+    public static GridCellBuilder gridCellBuilder = new GridCellBuilder();
 
     @Override
     public GridCell createGrid(Position position) {

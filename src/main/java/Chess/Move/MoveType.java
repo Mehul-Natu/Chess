@@ -1,7 +1,7 @@
 package Chess.Move;
 
 public enum MoveType {
-    black,
+    blank,
     kill,
     blank_kill,
     jump_blank_kill,

@@ -10,7 +10,6 @@ public class PieceManager implements Observable {
 
 
     Piece piece;
-
     Set<PlayableMove> currentPlayableMoves;
     Set<Observer> gridObservers;
 
@@ -32,6 +31,6 @@ public class PieceManager implements Observable {
 
     @Override
     public boolean containsPlaybleMove(Position position) {
-        return ;
+        return currentPlayableMoves.contains(position);
     }
 }

@@ -9,4 +9,6 @@ public class PlayableMove extends Position {
         super(x, y);
         this.moveType = moveType;
     }
+
+
 }

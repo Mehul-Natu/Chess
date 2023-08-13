@@ -1,5 +1,6 @@
 package Chess.Grid;
 
+import Chess.Grid.Builder.GridCellFactory;
 import Chess.Grid.Builder.GridCellFactoryAPI;
 import Chess.Piece.PieceManager;
 import Chess.Position;
@@ -12,6 +13,7 @@ public class Grid {
 
     public Grid() {
         this.grid = new GridCell[8][8];
+        this.gridCellFactory = new GridCellFactory();
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {

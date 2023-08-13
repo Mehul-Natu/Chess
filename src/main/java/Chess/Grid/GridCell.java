@@ -21,4 +21,12 @@ public class GridCell implements Observer {
     public void update() {
 
     }
+
+    public void setCurrentPiece(Piece currentPiece) {
+        this.currentPiece = currentPiece;
+    }
+
+    public void setListOfObserver(List<Observer> listOfObserver) {
+        this.listOfObserver = listOfObserver;
+    }
 }

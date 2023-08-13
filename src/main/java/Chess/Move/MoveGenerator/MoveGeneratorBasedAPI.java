@@ -14,6 +14,8 @@ public abstract class MoveGeneratorBasedAPI {
     protected int[] xAndyMagnitude;
 
     public abstract void setGrid(Grid grid);
+
+    public abstract void setxAndyMagnitude(int[] xAndyMagnitude);
     public abstract Set<PlayableMove> getMoves(Position position);
 
 

@@ -24,6 +24,11 @@ public class MGKill extends MoveGeneratorBasedAPI {
     }
 
     @Override
+    public void setxAndyMagnitude(int[] xAndyMagnitude) {
+        setxAndyMagnitude(xAndyMagnitude);
+    }
+
+    @Override
     public Set<PlayableMove> getMoves(Position position) {
         return null;
     }

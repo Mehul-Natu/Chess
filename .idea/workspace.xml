@@ -5,26 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11822ecf-9dd4-4745-8475-11fe423caed8" name="Changes" comment="">
-<<<<<<< Updated upstream
-      <change afterPath="$PROJECT_DIR$/src/main/java/Chess/Grid/Grid.java" afterDir="false" />
-=======
-      <change afterPath="$PROJECT_DIR$/src/main/java/Chess/Grid/Builder/GridCellBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Chess/Grid/Builder/GridCellBuilderAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Chess/Grid/Builder/GridCellFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Chess/Grid/Builder/GridCellFactoryAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
->>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Grid/GridCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Grid/GridCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Grid/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Grid/Observer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Move/MoveRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Move/MoveRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Move/MoveType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Move/MoveType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Piece/Observable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Piece/Observable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Piece/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Piece/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Piece/PieceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Piece/PieceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Piece/PieceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Piece/PieceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Chess/Grid/Builder/GridCellFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Grid/Builder/GridCellFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Chess/Grid/Builder/GridCellFactoryAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Grid/Builder/GridCellFactoryAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Chess/Grid/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Chess/Grid/Grid.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,15 +43,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-<<<<<<< Updated upstream
-    "last_opened_file_path": "C:/Users/mehul/Documents/College_Grad/Summer_1/Chess_Project/Chess"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mehul/Documents/College_Grad/Summer_1/Chess_Project/Chess&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Chess.Runner" />
@@ -87,11 +71,6 @@
       </list>
     </recent_temporary>
   </component>
-=======
-    "last_opened_file_path": "C:/Users/natap/OneDrive/Northeastern University Work/Summer 2023/CSYE7374/Chess Test Repos/Chess-main/Chess-main"
-  }
-}]]></component>
->>>>>>> Stashed changes
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -113,16 +92,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Chess/Grid/Grid.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

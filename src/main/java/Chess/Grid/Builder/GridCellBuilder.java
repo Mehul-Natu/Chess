@@ -21,7 +21,7 @@ public class GridCellBuilder implements GridCellBuilderAPI {
     }
 
     @Override
-    public GridCellBuilder setCurrentPiece(Piece currentPiece) {
+    public GridCellBuilder setCurrentPiece(PieceManager currentPiece) {
         this.gridCell.setCurrentPiece(currentPiece);
         return this;
     }

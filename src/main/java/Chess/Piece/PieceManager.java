@@ -39,14 +39,6 @@ public class PieceManager implements Observable {
         return currentPlayableMoves.contains(position);
     }
 
-<<<<<<< Updated upstream
-    public PieceManager(Piece piece) {
-        this.piece = piece;
-    }
-
-    public Piece getPiece() {
-        return piece;
-=======
     public void refreshCurrentPlayableMoves() {
         for (MoveRule rule : piece.getMoveRuleList()) {
             switch (rule.getMoveType()) {
@@ -58,6 +50,5 @@ public class PieceManager implements Observable {
                 case
             }
         }
->>>>>>> Stashed changes
     }
 }

@@ -10,4 +10,12 @@ public class MoveRule {
         this.moveType = moveType;
         this.xAndyMagnitude = xAndyMagnitude;
     }
+
+    public MoveType getMoveType() {
+        return moveType;
+    }
+
+    public int[] getxAndyMagnitude() {
+        return xAndyMagnitude;
+    }
 }

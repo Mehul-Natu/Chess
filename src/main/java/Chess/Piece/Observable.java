@@ -11,5 +11,5 @@ public interface Observable {
 
     void notifyObserver();
 
-    boolean containsPlaybleMove(Position position);
+    boolean containsPlayableMove(Position position);
 }

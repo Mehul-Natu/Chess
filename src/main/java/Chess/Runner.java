@@ -19,8 +19,12 @@ public class Runner {
         Set<PlayableMove> set = new HashSet<>();
         set.add(new PlayableMove(1, 0, MoveType.blank));
         set.add(new PlayableMove(1, 0, MoveType.kill));
+<<<<<<< Updated upstream
         //System.out.println(set.contains();
 
         grid.printBoard();
+=======
+        //
+>>>>>>> Stashed changes
     }
 }

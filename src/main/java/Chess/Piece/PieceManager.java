@@ -1,6 +1,7 @@
 package Chess.Piece;
 
 import Chess.Grid.Observer;
+import Chess.Move.MoveRule;
 import Chess.Move.PlayableMove;
 import Chess.Position;
 
@@ -12,6 +13,10 @@ public class PieceManager implements Observable {
     Piece piece;
     Set<PlayableMove> currentPlayableMoves;
     Set<Observer> gridObservers;
+
+    Position currentPosition;
+
+
 
 
     @Override
@@ -30,15 +35,29 @@ public class PieceManager implements Observable {
     }
 
     @Override
-    public boolean containsPlaybleMove(Position position) {
+    public boolean containsPlayableMove(Position position) {
         return currentPlayableMoves.contains(position);
     }
 
+<<<<<<< Updated upstream
     public PieceManager(Piece piece) {
         this.piece = piece;
     }
 
     public Piece getPiece() {
         return piece;
+=======
+    public void refreshCurrentPlayableMoves() {
+        for (MoveRule rule : piece.getMoveRuleList()) {
+            switch (rule.getMoveType()) {
+                case kill -> {
+                }
+                case blank -> {
+
+                }
+                case
+            }
+        }
+>>>>>>> Stashed changes
     }
 }

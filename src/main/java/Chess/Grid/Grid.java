@@ -29,4 +29,8 @@ public class Grid {
     }
 
 
+    public void printBoard(){
+
+    }
+
 }

@@ -11,6 +11,10 @@ public class ResultsState implements StateAPI{
 
     @Override
     public StateAPI nextState() {
-        return null;
+        if(currentState.getState() == "newgame"){
+            return new GameStart();
+        }else{
+            return new GameEnd();
+        }
     }
 }

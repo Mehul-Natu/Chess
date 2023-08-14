@@ -12,4 +12,8 @@ public interface Observable {
     void notifyObserver();
 
     boolean containsPlayableMove(Position position);
+
+    Piece getPiece();
+
+
 }

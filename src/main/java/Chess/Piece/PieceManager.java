@@ -1,10 +1,13 @@
 package Chess.Piece;
 
 import Chess.Grid.Observer;
+import Chess.Move.MoveGenerator.MoveGeneratorBasedAPI;
 import Chess.Move.MoveRule;
+import Chess.Move.MoveType;
 import Chess.Move.PlayableMove;
 import Chess.Position;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class PieceManager implements Observable {
@@ -13,11 +16,12 @@ public class PieceManager implements Observable {
     Piece piece;
     Set<PlayableMove> currentPlayableMoves;
     Set<Observer> gridObservers;
-
     Position currentPosition;
 
-
-
+    public PieceManager(Piece piece, Position currentPosition) {
+        this.piece = piece;
+        this.currentPosition = currentPosition;
+    }
 
     @Override
     public void subscribe(Observer observer) {
@@ -39,16 +43,20 @@ public class PieceManager implements Observable {
         return currentPlayableMoves.contains(position);
     }
 
-    public void refreshCurrentPlayableMoves() {
-        for (MoveRule rule : piece.getMoveRuleList()) {
-            switch (rule.getMoveType()) {
-                case kill -> {
-                }
-                case blank -> {
+    @Override
+    public Piece getPiece() {
+        return this.piece;
+    }
 
-                }
-                case
-            }
+    public void refreshCurrentPlayableMoves() {
+        Set<PlayableMove> set = new HashSet<>();
+        for (MoveRule rule : piece.getMoveRuleList()) {
+            MoveType moveType = rule.getMoveType();
+            MoveGeneratorBasedAPI moveGenerator = moveType.getMoveGeneratorBasedAPI();
+            moveGenerator.setPieceType(this.piece.pieceType);
+            moveGenerator.setxAndyMagnitude(rule.getxAndyMagnitude());
+            set.addAll(moveGenerator.getMoves(this.currentPosition));
         }
+        this.currentPlayableMoves.addAll(set);
     }
 }

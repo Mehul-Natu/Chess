@@ -6,7 +6,7 @@ public class MoveRule {
 
     final int[] xAndyMagnitude;
 
-    private MoveRule(MoveType moveType, int[] xAndyMagnitude) {
+    public MoveRule(MoveType moveType, int[] xAndyMagnitude) {
         this.moveType = moveType;
         this.xAndyMagnitude = xAndyMagnitude;
     }

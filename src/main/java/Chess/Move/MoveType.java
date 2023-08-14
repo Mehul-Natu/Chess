@@ -16,4 +16,7 @@ public enum MoveType {
         this.moveGeneratorBasedAPI = moveGenerator;
     }
 
+    public MoveGeneratorBasedAPI getMoveGeneratorBasedAPI() {
+        return moveGeneratorBasedAPI;
+    }
 }

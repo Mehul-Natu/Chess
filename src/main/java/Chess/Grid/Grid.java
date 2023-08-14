@@ -27,7 +27,7 @@ public class Grid {
     }
 
     public void setPiece(PieceManager pieceManager, Position position) {
-
+        grid[position.getX()][position.getY()].setCurrentPiece(pieceManager);
     }
 
 
@@ -38,7 +38,7 @@ public class Grid {
 
         PieceType pieceType = PieceType.BlackKnight;
         Piece king1 = new Piece(pieceType,null);
-        PieceManager king = new PieceManager(king1);
+        PieceManager king = new PieceManager(king1, new Position(1, 0));
 
         grid[1][1].setCurrentPiece(king);
 
@@ -63,4 +63,7 @@ public class Grid {
 
     }
 
+    public GridCell getGridCell(int x, int y) {
+        return grid[x][y];
+    }
 }

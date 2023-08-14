@@ -1,7 +1,7 @@
 package Chess.Move;
 
 import Chess.Game.Player;
-import Chess.Grid.Grid;
+import Chess.Grid.GameToGridAdapter;
 import Chess.Grid.GridCell;
 import Chess.Piece.PieceManager;
 import Chess.Position;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class MovementEncapsulator {
 
 
-    public boolean playMove(Player player, Grid grid, Position startingPosition, Position endingPosition) {
+    public boolean playMove(Player player, GameToGridAdapter grid, Position startingPosition, Position endingPosition) {
         GridCell gridCell = grid.getGridCell(startingPosition);
 
         if (!gridCell.hasPiece()) {
@@ -37,7 +37,7 @@ public class MovementEncapsulator {
     }
 
 
-    public void refreshObserverAndMovements(PieceManager pieceManager, Grid grid) {
+    public void refreshObserverAndMovements(PieceManager pieceManager, GameToGridAdapter grid) {
         pieceManager.refreshMoves();
         Set<IndirectMove> indirectMoves = pieceManager.getIndirectMoves();
         Set<PlayableMove> directMoves = pieceManager.getCurrentPlayableMoves();

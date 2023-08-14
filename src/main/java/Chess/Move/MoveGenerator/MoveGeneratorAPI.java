@@ -1,6 +1,6 @@
 package Chess.Move.MoveGenerator;
 
-import Chess.Grid.Grid;
+import Chess.Grid.GameToGridAdapter;
 import Chess.Move.IndirectMove;
 import Chess.Move.PlayableMove;
 import Chess.Piece.PieceType;
@@ -14,12 +14,12 @@ import static Chess.Move.MoveConstants.GRID_UPPER_LIMIT;
 
 public abstract class MoveGeneratorAPI {
 
-    protected static Grid grid;
+    protected static GameToGridAdapter grid;
     protected int[] xAndyMagnitude;
 
     protected PieceType pieceType;
 
-    public static void setGrid(Grid newGrid) {
+    public static void setGrid(GameToGridAdapter newGrid) {
         if (grid == null) {
             grid = newGrid;
         }
@@ -39,7 +39,7 @@ public abstract class MoveGeneratorAPI {
         return new HashSet<>();
     }
 
-    public static Grid getGrid() {
+    public static GameToGridAdapter getGrid() {
         return grid;
     }
 

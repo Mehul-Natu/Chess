@@ -7,13 +7,13 @@ import Chess.Piece.PieceManager;
 import Chess.Piece.PieceType;
 import Chess.Position;
 
-public class Grid {
+public class GameToGridAdapter {
 
     GridCell[][] grid;
 
     GridCellFactoryAPI gridCellFactory;
 
-    public Grid() {
+    public GameToGridAdapter() {
         this.grid = new GridCell[8][8];
         this.gridCellFactory = new GridCellFactory();
 

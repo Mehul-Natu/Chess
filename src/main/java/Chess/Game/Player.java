@@ -1,17 +1,40 @@
 package Chess.Game;
 
-public enum Player {
+public class Player {
 
-    Player1(false),
-    Player2(true);
 
-    private boolean black;
+    private final boolean black;
 
-    Player(boolean black) {
+    private final String name;
+
+    int moveCount = 0;
+
+    GameResult gameResult;
+
+
+
+    Player(boolean black, String name) {
         this.black = black;
+        this.name = name;
     }
 
     public boolean isBlack() {
         return black;
+    }
+
+    public int getMoveCount() {
+        return moveCount;
+    }
+
+    public void setMoveCount(int moveCount) {
+        this.moveCount = moveCount;
+    }
+
+    public GameResult getGameResult() {
+        return gameResult;
+    }
+
+    public void setGameResult(GameResult gameResult) {
+        this.gameResult = gameResult;
     }
 }

@@ -1,22 +1,44 @@
 package Chess.Game;
 
+import Chess.Game.States.*;
+
 import java.util.Scanner;
 
-public class ChessGame {
+public class ChessGame implements StateAPI  {
 
     //create the player inputs such as B2,C1
     //convert B2 to array input [1][2] to [2][0]
 
-    private static StateAPI state;
+    private CurrentStateConfiguration stateConfiguration;
 
-    CurrentState currentState = new CurrentState();
+    private StateAPI gameEnd;
+    private StateAPI gameStart;
+    private StateAPI playerOneMoves;
+    private StateAPI playerTwoMoves;
+    private StateAPI resultState;
 
-    public void operate(StateAPI state, CurrentState currentState){
-        state.operate(currentState);
+    private StateAPI checkOrCheckMate;
+
+
+    public ChessGame() {
+        stateConfiguration = new CurrentStateConfiguration();
+        gameEnd = new GameEnd(stateConfiguration);
+        gameStart = new GameStart(stateConfiguration);
+        playerOneMoves = new PlayerOneMoves(stateConfiguration);
+        playerTwoMoves = new PlayerTwoMoves(stateConfiguration);
+        resultState = new ResultsState(stateConfiguration);
+        checkOrCheckMate =  new CheckOrCheckmate(stateConfiguration);
+
+        stateConfiguration.setStateAPI(gameStart);
+
+    }
+
+    public void operate(){
+
+        this.stateConfiguration.getStateAPI().operate();
     }
 
     public void next(){
-        this.state.operate(currentState);
     }
 
 
@@ -60,9 +82,5 @@ public class ChessGame {
 
         int y_axisD = originTile.charAt(1) - 1;
 
-
-
-
     }
-
 }

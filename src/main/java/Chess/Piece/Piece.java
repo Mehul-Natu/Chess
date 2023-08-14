@@ -8,11 +8,10 @@ public class Piece {
 
     final PieceType pieceType;
 
-    final List<MoveRule> moveRuleList;
+    List<MoveRule> moveRuleList;
 
-    public Piece(PieceType pieceType, List<MoveRule> moveRuleList) {
+    public Piece(PieceType pieceType) {
         this.pieceType = pieceType;
-        this.moveRuleList = moveRuleList;
     }
 
     public PieceType getPieceType() {
@@ -21,6 +20,10 @@ public class Piece {
 
     public List<MoveRule> getMoveRuleList() {
         return moveRuleList;
+    }
+
+    public void setMoveRuleList(List<MoveRule> moveRuleList) {
+        this.moveRuleList = moveRuleList;
     }
 
     @Override

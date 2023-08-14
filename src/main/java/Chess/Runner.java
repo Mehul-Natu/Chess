@@ -9,10 +9,7 @@ import Chess.Move.MoveGenerator.impl.MGSafeBlankKill;
 import Chess.Move.MoveRule;
 import Chess.Move.MoveType;
 import Chess.Move.PlayableMove;
-import Chess.Piece.Builder.PieceBuilder;
-import Chess.Piece.Builder.PieceBuilderFactory;
-import Chess.Piece.Builder.PieceManagerBuilder;
-import Chess.Piece.Builder.PieceManagerBuilderFactory;
+import Chess.Piece.Builder.*;
 import Chess.Piece.Observable;
 import Chess.Piece.Piece;
 import Chess.Piece.PieceManager;
@@ -317,10 +314,31 @@ public class Runner {
 
             Grid grid1 = new Grid();
             MoveGeneratorAPI.setGrid(grid1);
-            PieceManagerBuilderFactory.getInstance().createPiece(new PieceManagerBuilder().setPiece(PieceBuilderFactory.getInstance().createPiece(new PieceBuilder().setPieceType(PieceType.BlackQueen).setMoveRuleList(moveRuleList))).setCurrentPosition(new Position(0,0))).refreshMoves();
+//            PieceManager pieceManager = PieceManagerFactory.getInstance().createPieceManager();
+
+//            pieceManager.refreshMoves();
+
+            PieceBuilder queenPieceBuilder = new PieceBuilder();
+
+            queenPieceBuilder.setPieceType(PieceType.BlackQueen).setMoveRuleList(moveRuleList);
+
+            PieceFactory pieceFactory = PieceFactory.getInstance();
+
+
+            PieceManagerBuilder queenPieceManagerBuilder = new PieceManagerBuilder();
+//
+            queenPieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(queenPieceBuilder)).setCurrentPosition(new Position(1,1));
+
+
+            PieceManagerFactory pieceManagerFactory = PieceManagerFactory.getInstance();
+            pieceManagerFactory.createPieceManager(queenPieceManagerBuilder).refreshMoves();
+
+
+
+//            pieceManagerFactory.refreshMoves();
 
         } catch (Exception e){
-
+            System.out.println("Error");
         }
     }
 

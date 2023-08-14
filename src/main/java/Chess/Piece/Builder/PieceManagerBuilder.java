@@ -15,13 +15,19 @@ public class PieceManagerBuilder implements PieceManagerBuilderAPI{
 
     @Override
     public PieceManagerBuilder setPiece(Piece piece) {
-        pieceManager.setPiece(piece);
+        this.pieceManager.setPiece(piece);
         return this;
     }
 
     @Override
     public PieceManagerBuilder setCurrentPosition(Position currentPosition) {
-        pieceManager.setCurrentPosition(currentPosition);
+        this.pieceManager.setCurrentPosition(currentPosition);
+        return this;
+    }
+
+    @Override
+    public PieceManagerBuilder reset() {
+        this.pieceManager = new PieceManager();
         return this;
     }
 

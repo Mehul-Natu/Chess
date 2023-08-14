@@ -20,7 +20,7 @@ public interface Observable {
 
     IndirectMove getIndirectMove(Position position);
 
-
+    Position getPosition();
 
 
 }

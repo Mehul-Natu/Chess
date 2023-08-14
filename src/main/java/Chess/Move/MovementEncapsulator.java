@@ -32,6 +32,7 @@ public class MovementEncapsulator {
         }
 
         //todo adapter for piece manager and cell grid
+        return false;
 
     }
 

@@ -8,5 +8,5 @@ public class AllMovements {
 
     Set<PlayableMove> playableMoves;
 
-    Set
+    //Set
 }

@@ -6,6 +6,7 @@ import Chess.Move.MoveGenerator.MoveGeneratorAPI;
 import Chess.Move.MoveRule;
 import Chess.Move.MoveType;
 import Chess.Move.PlayableMove;
+import Chess.Piece.AttackBlocker.AttackBlocker;
 import Chess.Position;
 
 import java.util.HashMap;
@@ -28,6 +29,7 @@ public class PieceManager implements Observable {
         this.currentPlayableMoves = new HashSet<>();
         this.indirectMoves = new HashSet<>();
         this.hostageToAttackBlockerMap = new HashMap<>();
+        this.gridObservers = new HashSet<>();
     }
 
     @Override
@@ -75,6 +77,11 @@ public class PieceManager implements Observable {
         return null;
     }
 
+    @Override
+    public Position getPosition() {
+        return this.currentPosition;
+    }
+
     public boolean isBlack() {
         return this.piece.getPieceType().isBlack();
     }
@@ -114,4 +121,10 @@ public class PieceManager implements Observable {
     public void removeAttackBlockerDetails(PieceManager saviourOf) {
         this.hostageToAttackBlockerMap.remove(saviourOf);
     }
+
+    public Position getCurrentPosition() {
+        return currentPosition;
+    }
+
+
 }

@@ -1,7 +1,7 @@
 package Chess.Grid;
 
 import Chess.Move.IndirectMove;
-import Chess.Piece.AttackBlocker;
+import Chess.Piece.AttackBlocker.AttackBlocker;
 import Chess.Piece.Observable;
 import Chess.Piece.PieceManager;
 import Chess.Position;
@@ -30,6 +30,11 @@ public class GridCell implements Observer {
     @Override
     public void update(Observable observable) {
         //if (observable)
+
+        if (((PieceManager) observable).getCurrentPosition().equals(this.position)) {
+            System.out.println("In Here");
+            return;
+        }
 
         boolean playablePublisher = observable.containsPlayableMove(position);
         boolean indirectPublisher = observable.containsIndirectMove(position);

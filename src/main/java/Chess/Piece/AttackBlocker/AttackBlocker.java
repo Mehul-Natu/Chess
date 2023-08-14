@@ -1,4 +1,5 @@
-package Chess.Piece;
+package Chess.Piece.AttackBlocker;
+
 
 import Chess.Piece.PieceManager;
 

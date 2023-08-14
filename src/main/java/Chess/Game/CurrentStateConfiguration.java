@@ -1,14 +1,14 @@
 package Chess.Game;
 
 import Chess.Game.States.GameStateEnum;
-import Chess.Grid.GameToGridAdapter;
+import Chess.Grid.Grid;
 
 public class CurrentStateConfiguration {
 
     private GameStateEnum stateEnum;
     private StateAPI stateAPI;
 
-    private final GameToGridAdapter grid;
+    private final Grid grid;
 
     private Player playerOne;
 
@@ -16,7 +16,7 @@ public class CurrentStateConfiguration {
 
 
     public CurrentStateConfiguration() {
-        grid = new GameToGridAdapter();
+        grid = new Grid();
     }
 
     public void setStateEnum(GameStateEnum stateEnum) {

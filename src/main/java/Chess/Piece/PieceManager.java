@@ -13,6 +13,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+import static Chess.Piece.PieceType.*;
+
 public class PieceManager implements Observable {
 
     Piece piece;
@@ -133,4 +135,22 @@ public class PieceManager implements Observable {
     public void setCurrentPosition(Position currentPosition) {
         this.currentPosition = currentPosition;
     }
+
+
+    public boolean isKingSaver() {
+        for (PieceManager pieceManager : this.hostageToAttackBlockerMap.keySet()) {
+            if (isBlack()) {
+                if (BlackKing.equals(pieceManager.getPiece().getPieceType())) {
+                    return true;
+                }
+            } else {
+                if (WhiteKing.equals(pieceManager.getPiece().getPieceType())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
 }

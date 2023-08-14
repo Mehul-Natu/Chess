@@ -1,19 +1,22 @@
 package Chess.Grid;
 
+import Chess.Game.GameToGridBridgeAbstraction;
+import Chess.Game.GridResponse;
+import Chess.Game.Player;
 import Chess.Grid.Builder.GridCellFactory;
 import Chess.Grid.Builder.GridCellFactoryAPI;
-import Chess.Piece.Piece;
 import Chess.Piece.PieceManager;
-import Chess.Piece.PieceType;
 import Chess.Position;
 
-public class GameToGridAdapter {
+public class Grid implements GameToGridBridgeAbstraction {
 
     GridCell[][] grid;
 
     GridCellFactoryAPI gridCellFactory;
 
-    public GameToGridAdapter() {
+
+
+    public Grid() {
         this.grid = new GridCell[8][8];
         this.gridCellFactory = new GridCellFactory();
 
@@ -65,4 +68,18 @@ public class GameToGridAdapter {
         return grid[position.getX()][position.getY()];
     }
 
+    @Override
+    public GridResponse checkMoveCorrectness(Position starting, Position ending, Player player) {
+        return null;
+    }
+
+    @Override
+    public GridResponse makeMove(Position starting, Position ending, Player player) {
+        return null;
+    }
+
+    @Override
+    public GridResponse checkForCheckMate(Player lastMoved) {
+        return null;
+    }
 }

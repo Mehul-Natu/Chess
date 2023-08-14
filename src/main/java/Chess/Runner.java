@@ -1,6 +1,6 @@
 package Chess;
 
-import Chess.Grid.GameToGridAdapter;
+import Chess.Grid.Grid;
 import Chess.Move.MoveConstants;
 import Chess.Move.MoveGenerator.MoveGeneratorAPI;
 import Chess.Move.MoveGenerator.impl.MGBlank;
@@ -25,7 +25,7 @@ public class Runner {
     public static void main(String[] args) {
 
         System.out.println("Hello");
-        GameToGridAdapter grid = new GameToGridAdapter();
+        Grid grid = new Grid();
 
 
         Set<PlayableMove> set = new HashSet<>();
@@ -48,7 +48,7 @@ public class Runner {
 
 
             MoveGeneratorAPI moveGeneratorBasedAPI = MGBlank.getInstance();
-            GameToGridAdapter grid1 = new GameToGridAdapter();
+            Grid grid1 = new Grid();
             List<MoveRule> moveRuleList = new ArrayList<>();
 
             moveRuleList.add(new MoveRule(MoveType.jump_blank_kill, new int[] {2, 1}));
@@ -81,7 +81,7 @@ public class Runner {
 
 
             MoveGeneratorAPI moveGeneratorBasedAPI = MGBlankKill.getInstance();
-            GameToGridAdapter grid1 = new GameToGridAdapter();
+            Grid grid1 = new Grid();
             List<MoveRule> moveRuleList = new ArrayList<>();
 
             moveRuleList.add(new MoveRule(MoveType.blank_kill, new int[] {0, MoveConstants.INFINITE_ADD}));
@@ -113,7 +113,7 @@ public class Runner {
 
 
             MoveGeneratorAPI moveGeneratorBasedAPI = MGBlankKill.getInstance();
-            GameToGridAdapter grid1 = new GameToGridAdapter();
+            Grid grid1 = new Grid();
             List<MoveRule> moveRuleList = new ArrayList<>();
 
             moveRuleList.add(new MoveRule(MoveType.blank_kill, new int[] {MoveConstants.INFINITE_ADD, MoveConstants.INFINITE_ADD}));
@@ -141,7 +141,7 @@ public class Runner {
 
 
             MoveGeneratorAPI moveGeneratorBasedAPI = MGBlankKill.getInstance();
-            GameToGridAdapter grid1 = new GameToGridAdapter();
+            Grid grid1 = new Grid();
             List<MoveRule> moveRuleList = new ArrayList<>();
 
             moveRuleList.add(new MoveRule(MoveType.blank_kill, new int[] {0, MoveConstants.INFINITE_ADD}));
@@ -169,7 +169,7 @@ public class Runner {
 
 
             MoveGeneratorAPI moveGeneratorBasedAPI = MGSafeBlankKill.getInstance();
-            GameToGridAdapter grid1 = new GameToGridAdapter();
+            Grid grid1 = new Grid();
             List<MoveRule> moveRuleList = new ArrayList<>();
 
             moveRuleList.add(new MoveRule(MoveType.safe_blank_kill, new int[] {0, 1}));
@@ -201,7 +201,7 @@ public class Runner {
 
 
             MoveGeneratorAPI moveGeneratorBasedAPI = MGBlankKill.getInstance();
-            GameToGridAdapter grid1 = new GameToGridAdapter();
+            Grid grid1 = new Grid();
             List<MoveRule> moveRuleList = new ArrayList<>();
 
             moveRuleList.add(new MoveRule(MoveType.blank, new int[] {0, 1}));
@@ -246,7 +246,7 @@ public class Runner {
                     new Position(4, 4));
 
 
-            GameToGridAdapter grid1 = new GameToGridAdapter();
+            Grid grid1 = new Grid();
             List<MoveRule> moveRuleList = new ArrayList<>();
 
             moveRuleList.add(new MoveRule(MoveType.blank_kill, new int[] {0, MoveConstants.INFINITE_ADD}));
@@ -286,7 +286,7 @@ public class Runner {
     }
 
 
-    public static void subscribeToAll(List<Observable> list, GameToGridAdapter grid) {
+    public static void subscribeToAll(List<Observable> list, Grid grid) {
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {

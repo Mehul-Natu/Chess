@@ -6,8 +6,10 @@ import java.util.Set;
 
 public class AttackBlockerManager {
 
+    AttackBlockerStrategy attackBlockerStrategy;
 
-    public AttackBlockerStrategy getStrategy(Position startingPos, Position endingPos) {
+
+    public AttackBlockerStrategy configureStrategy(Position startingPos, Position endingPos) {
 
         int xDiff = endingPos.getX() - startingPos.getX();
         int yDiff = endingPos.getY() - startingPos.getY();
@@ -20,7 +22,18 @@ public class AttackBlockerManager {
     }
 
     public Set<Position> getPositionBetweenAttackerAndVictim(Position startingPos, Position endingPos) {
-        return null;
+        if (attackBlockerStrategy != null) {
+            return null;
+        }
+        return attackBlockerStrategy.getAlgo().getPositions(startingPos, endingPos);
     }
 
+
+    public AttackBlockerStrategy getAttackBlockerStrategy() {
+        return attackBlockerStrategy;
+    }
+
+    public void setAttackBlockerStrategy(AttackBlockerStrategy attackBlockerStrategy) {
+        this.attackBlockerStrategy = attackBlockerStrategy;
+    }
 }

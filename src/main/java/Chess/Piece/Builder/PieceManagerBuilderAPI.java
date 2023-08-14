@@ -13,6 +13,8 @@ public interface PieceManagerBuilderAPI {
 
     PieceManagerBuilder setCurrentPosition(Position currentPosition);
 
+    PieceManagerBuilder reset();
+
     PieceManager build();
 
 }

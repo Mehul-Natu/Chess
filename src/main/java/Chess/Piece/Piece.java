@@ -4,7 +4,7 @@ import Chess.Move.MoveRule;
 import java.util.List;
 import java.util.Objects;
 
-public class Piece {
+public class Piece implements Cloneable{
 
     final PieceType pieceType;
 
@@ -44,5 +44,9 @@ public class Piece {
     }
 
 
+    @Override
+    public Piece clone() {
+        return new Piece(this.pieceType);
+    }
 
 }

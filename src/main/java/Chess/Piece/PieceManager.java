@@ -34,6 +34,13 @@ public class PieceManager implements Observable {
         this.gridObservers = new HashSet<>();
     }
 
+    public PieceManager() {
+        this.currentPlayableMoves = new HashSet<>();
+        this.indirectMoves = new HashSet<>();
+        this.hostageToAttackBlockerMap = new HashMap<>();
+        this.gridObservers = new HashSet<>();
+    }
+
     @Override
     public void subscribe(Observer observer) {
         gridObservers.add(observer);
@@ -134,6 +141,11 @@ public class PieceManager implements Observable {
 
     public void setCurrentPosition(Position currentPosition) {
         this.currentPosition = currentPosition;
+    }
+
+    @Override
+    public PieceManager clone() {
+        return new PieceManager();
     }
 
 

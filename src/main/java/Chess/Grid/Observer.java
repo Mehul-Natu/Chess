@@ -6,8 +6,10 @@ import java.util.List;
 
 public interface Observer {
 
-    public void update(Observable observable);
+    void update(Observable observable);
 
-    public List<Observable> getObservers(boolean black);
+    List<Observable> getDirectMovers(boolean black);
+
+    public List<Observable> getInDirectMovers(boolean black);
 
 }

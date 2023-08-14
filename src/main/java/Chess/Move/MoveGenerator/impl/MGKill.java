@@ -1,7 +1,6 @@
 package Chess.Move.MoveGenerator.impl;
 
-import Chess.Grid.Grid;
-import Chess.Move.MoveGenerator.MoveGeneratorBasedAPI;
+import Chess.Move.MoveGenerator.MoveGeneratorAPI;
 import Chess.Move.MoveType;
 import Chess.Move.PlayableMove;
 import Chess.Piece.PieceManager;
@@ -10,15 +9,12 @@ import Chess.Position;
 import java.util.HashSet;
 import java.util.Set;
 
-import static Chess.Move.MoveConstants.GRID_LOWER_LIMIT;
-import static Chess.Move.MoveConstants.GRID_UPPER_LIMIT;
+public class MGKill extends MoveGeneratorAPI {
 
-public class MGKill extends MoveGeneratorBasedAPI {
-
-    private static MoveGeneratorBasedAPI instance;
+    private static MoveGeneratorAPI instance;
 
 
-    public synchronized static MoveGeneratorBasedAPI getInstance() {
+    public synchronized static MoveGeneratorAPI getInstance() {
         if (instance == null) {
             instance = new MGKill();
         }
@@ -28,7 +24,7 @@ public class MGKill extends MoveGeneratorBasedAPI {
     private MGKill() {}
 
     @Override
-    public Set<PlayableMove> getMoves(Position position) {
+    public Set<PlayableMove> getDirectMoves(Position position) {
         HashSet<PlayableMove> playableMoves = new HashSet<>();
 
         int xIndex = position.getX() + xAndyMagnitude[0];

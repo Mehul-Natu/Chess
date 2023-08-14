@@ -2,7 +2,7 @@ package Chess;
 
 import Chess.Grid.Grid;
 import Chess.Move.MoveConstants;
-import Chess.Move.MoveGenerator.MoveGeneratorBasedAPI;
+import Chess.Move.MoveGenerator.MoveGeneratorAPI;
 import Chess.Move.MoveGenerator.impl.MGBlank;
 import Chess.Move.MoveGenerator.impl.MGBlankKill;
 import Chess.Move.MoveRule;
@@ -39,7 +39,7 @@ public class Runner {
         try {
 
 
-            MoveGeneratorBasedAPI moveGeneratorBasedAPI = MGBlank.getInstance();
+            MoveGeneratorAPI moveGeneratorBasedAPI = MGBlank.getInstance();
             Grid grid1 = new Grid();
             List<MoveRule> moveRuleList = new ArrayList<>();
 
@@ -59,8 +59,8 @@ public class Runner {
 
 
 
-            MoveGeneratorBasedAPI.setGrid(grid1);
-            pieceManager.refreshCurrentPlayableMoves();
+            MoveGeneratorAPI.setGrid(grid1);
+            pieceManager.refreshMoves();
 
         } catch (Exception e) {
 
@@ -72,7 +72,7 @@ public class Runner {
         try {
 
 
-            MoveGeneratorBasedAPI moveGeneratorBasedAPI = MGBlankKill.getInstance();
+            MoveGeneratorAPI moveGeneratorBasedAPI = MGBlankKill.getInstance();
             Grid grid1 = new Grid();
             List<MoveRule> moveRuleList = new ArrayList<>();
 
@@ -89,8 +89,8 @@ public class Runner {
             PieceManager pieceManager = new PieceManager(new Piece(PieceType.BlackQueen, moveRuleList), new Position(0, 0));
             grid1.setPiece(pieceManager, new Position(0, 0));
 
-            MoveGeneratorBasedAPI.setGrid(grid1);
-            pieceManager.refreshCurrentPlayableMoves();
+            MoveGeneratorAPI.setGrid(grid1);
+            pieceManager.refreshMoves();
 
         } catch (Exception e) {
 

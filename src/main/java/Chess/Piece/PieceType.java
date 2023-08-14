@@ -14,17 +14,17 @@ public enum PieceType {
     WhitePawn("\u2659", false),
     WhiteBishop("\u2657", false);
 
-    private final String pieceType;
+    private final String pieceColorUnicode;
 
     private final boolean black;
 
     PieceType(String pieceType, boolean black) {
-        this.pieceType = pieceType;
+        this.pieceColorUnicode = pieceType;
         this.black = black;
     }
 
     public String getUnicode() {
-        return pieceType;
+        return pieceColorUnicode;
     }
 
     public boolean isBlack() {

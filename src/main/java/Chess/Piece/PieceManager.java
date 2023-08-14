@@ -1,27 +1,33 @@
 package Chess.Piece;
 
 import Chess.Grid.Observer;
-import Chess.Move.MoveGenerator.MoveGeneratorBasedAPI;
+import Chess.Move.IndirectMove;
+import Chess.Move.MoveGenerator.MoveGeneratorAPI;
 import Chess.Move.MoveRule;
 import Chess.Move.MoveType;
 import Chess.Move.PlayableMove;
 import Chess.Position;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
 public class PieceManager implements Observable {
 
-
     Piece piece;
     Set<PlayableMove> currentPlayableMoves;
+    Set<IndirectMove> indirectMoves;
     Set<Observer> gridObservers;
     Position currentPosition;
+
+    HashMap<PieceManager, AttackBlocker> hostageToAttackBlockerMap;
 
     public PieceManager(Piece piece, Position currentPosition) {
         this.piece = piece;
         this.currentPosition = currentPosition;
-        currentPlayableMoves = new HashSet<>();
+        this.currentPlayableMoves = new HashSet<>();
+        this.indirectMoves = new HashSet<>();
+        this.hostageToAttackBlockerMap = new HashMap<>();
     }
 
     @Override
@@ -36,6 +42,11 @@ public class PieceManager implements Observable {
 
     @Override
     public void notifyObserver() {
+        //before calling this check if the move can be made or not and also change to new position before calling this
+        //also refresh the playable move
+        for (Observer observer : gridObservers) {
+            observer.update(this);
+        }
 
     }
 
@@ -45,23 +56,62 @@ public class PieceManager implements Observable {
     }
 
     @Override
+    public boolean containsIndirectMove(Position position) {
+        return indirectMoves.contains(position);
+    }
+
+    @Override
     public Piece getPiece() {
         return this.piece;
+    }
+
+    @Override
+    public IndirectMove getIndirectMove(Position position) {
+        for (IndirectMove indirectMove : indirectMoves) {
+            if (indirectMove.equals(position)) {
+                return indirectMove;
+            }
+        }
+        return null;
     }
 
     public boolean isBlack() {
         return this.piece.getPieceType().isBlack();
     }
 
-    public void refreshCurrentPlayableMoves() {
-        Set<PlayableMove> set = new HashSet<>();
+    public void refreshMoves() {
+        Set<PlayableMove> playableMoves = new HashSet<>();
+        Set<IndirectMove> indirectMoves = new HashSet<>();
         for (MoveRule rule : piece.getMoveRuleList()) {
             MoveType moveType = rule.getMoveType();
-            MoveGeneratorBasedAPI moveGenerator = moveType.getMoveGeneratorBasedAPI();
+            MoveGeneratorAPI moveGenerator = moveType.getMoveGeneratorBasedAPI();
             moveGenerator.setPieceType(this.piece.pieceType);
             moveGenerator.setxAndyMagnitude(rule.getxAndyMagnitude());
-            set.addAll(moveGenerator.getMoves(this.currentPosition));
+            playableMoves.addAll(moveGenerator.getDirectMoves(this.currentPosition));
+            indirectMoves.addAll(moveGenerator.getInDirectMoves(this.currentPosition));
         }
-        this.currentPlayableMoves.addAll(set);
+        this.indirectMoves.addAll(indirectMoves);
+        this.currentPlayableMoves.addAll(playableMoves);
+        this.notifyObserver();
+    }
+
+    public Set<PlayableMove> getCurrentPlayableMoves() {
+        return currentPlayableMoves;
+    }
+
+    public Set<IndirectMove> getIndirectMoves() {
+        return indirectMoves;
+    }
+
+    public HashMap<PieceManager, AttackBlocker> getHostageToAttackBlockerMap() {
+        return hostageToAttackBlockerMap;
+    }
+
+    public void addAttackBlockerDetails(PieceManager saviourOf, AttackBlocker attackBlockerDetails) {
+        this.hostageToAttackBlockerMap.put(saviourOf, attackBlockerDetails);
+    }
+
+    public void removeAttackBlockerDetails(PieceManager saviourOf) {
+        this.hostageToAttackBlockerMap.remove(saviourOf);
     }
 }

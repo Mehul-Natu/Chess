@@ -66,4 +66,9 @@ public class Grid {
     public GridCell getGridCell(int x, int y) {
         return grid[x][y];
     }
+
+    public GridCell getGridCell(Position position) {
+        return grid[position.getX()][position.getY()];
+    }
+
 }

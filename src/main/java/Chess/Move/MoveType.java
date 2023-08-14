@@ -1,6 +1,6 @@
 package Chess.Move;
 
-import Chess.Move.MoveGenerator.MoveGeneratorBasedAPI;
+import Chess.Move.MoveGenerator.MoveGeneratorAPI;
 import Chess.Move.MoveGenerator.impl.*;
 
 public enum MoveType {
@@ -10,13 +10,13 @@ public enum MoveType {
     jump_blank_kill(MGJumpBlankKill.getInstance()),
     safe_blank_kill(MGSafeBlankKill.getInstance());
 
-    private MoveGeneratorBasedAPI moveGeneratorBasedAPI;
+    private MoveGeneratorAPI moveGeneratorBasedAPI;
 
-    MoveType(MoveGeneratorBasedAPI moveGenerator) {
+    MoveType(MoveGeneratorAPI moveGenerator) {
         this.moveGeneratorBasedAPI = moveGenerator;
     }
 
-    public MoveGeneratorBasedAPI getMoveGeneratorBasedAPI() {
+    public MoveGeneratorAPI getMoveGeneratorBasedAPI() {
         return moveGeneratorBasedAPI;
     }
 }

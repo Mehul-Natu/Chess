@@ -1,7 +1,6 @@
 package Chess.Move.MoveGenerator.impl;
 
-import Chess.Grid.Grid;
-import Chess.Move.MoveGenerator.MoveGeneratorBasedAPI;
+import Chess.Move.MoveGenerator.MoveGeneratorAPI;
 import Chess.Move.MoveType;
 import Chess.Move.PlayableMove;
 import Chess.Position;
@@ -11,11 +10,11 @@ import java.util.Set;
 
 import static Chess.Move.MoveConstants.*;
 
-public class MGBlank extends MoveGeneratorBasedAPI {
+public class MGBlank extends MoveGeneratorAPI {
 
-    private static MoveGeneratorBasedAPI instance;
+    private static MoveGeneratorAPI instance;
 
-    public synchronized static MoveGeneratorBasedAPI getInstance() {
+    public synchronized static MoveGeneratorAPI getInstance() {
         if (instance == null) {
             instance = new MGBlank();
         }
@@ -25,7 +24,7 @@ public class MGBlank extends MoveGeneratorBasedAPI {
     private MGBlank() {}
 
     @Override
-    public Set<PlayableMove> getMoves(Position position) {
+    public Set<PlayableMove> getDirectMoves(Position position) {
         int[] xAndyMagnitude = instance.getxAndyMagnitude();
         HashSet<PlayableMove> playableMoves = new HashSet<>();
         int xIndex = position.getX();

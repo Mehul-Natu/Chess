@@ -1,7 +1,6 @@
 package Chess.Move.MoveGenerator.impl;
 
-import Chess.Grid.Grid;
-import Chess.Move.MoveGenerator.MoveGeneratorBasedAPI;
+import Chess.Move.MoveGenerator.MoveGeneratorAPI;
 import Chess.Move.MoveType;
 import Chess.Move.PlayableMove;
 import Chess.Piece.Observable;
@@ -11,12 +10,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class MGSafeBlankKill extends MoveGeneratorBasedAPI {
+public class MGSafeBlankKill extends MoveGeneratorAPI {
 
-    private static MoveGeneratorBasedAPI instance;
+    private static MoveGeneratorAPI instance;
 
 
-    public synchronized static MoveGeneratorBasedAPI getInstance() {
+    public synchronized static MoveGeneratorAPI getInstance() {
         if (instance == null) {
             instance = new MGSafeBlankKill();
         }
@@ -26,7 +25,7 @@ public class MGSafeBlankKill extends MoveGeneratorBasedAPI {
     private MGSafeBlankKill() {}
 
     @Override
-    public Set<PlayableMove> getMoves(Position position) {
+    public Set<PlayableMove> getDirectMoves(Position position) {
         HashSet<PlayableMove> playableMoves = new HashSet<>();
 
         int xIndex = position.getX() + xAndyMagnitude[0];
@@ -34,7 +33,7 @@ public class MGSafeBlankKill extends MoveGeneratorBasedAPI {
 
         if (isInBound(xIndex, yIndex) && getGrid().getGridCell(xIndex, yIndex).getCurrentPiece() == null) {
             List<Observable> listOfAttackers = getGrid().getGridCell(xIndex, yIndex)
-                    .getObservers(getPieceType().isBlack());
+                    .getDirectMovers(getPieceType().isBlack());
             if (listOfAttackers.size() == 0) {
                 playableMoves.add(new PlayableMove(xIndex, yIndex, MoveType.safe_blank_kill));
             }

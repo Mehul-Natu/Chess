@@ -28,7 +28,7 @@ public class Runner {
         //
 
 
-        testForBishop();
+        //testForBishop();
         testForQueen();
 
     }
@@ -86,7 +86,7 @@ public class Runner {
             moveRuleList.add(new MoveRule(MoveType.blank_kill, new int[] {MoveConstants.INFINITE_SUBTRACT, MoveConstants.INFINITE_SUBTRACT}));
 
 
-            PieceManager pieceManager = new PieceManager(new Piece(PieceType.BlackQueen, moveRuleList), new Position(4, 4));
+            PieceManager pieceManager = new PieceManager(new Piece(PieceType.BlackQueen, moveRuleList), new Position(0, 0));
             grid1.setPiece(pieceManager, new Position(0, 0));
 
             MoveGeneratorBasedAPI.setGrid(grid1);

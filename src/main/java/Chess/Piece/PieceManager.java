@@ -21,6 +21,7 @@ public class PieceManager implements Observable {
     public PieceManager(Piece piece, Position currentPosition) {
         this.piece = piece;
         this.currentPosition = currentPosition;
+        currentPlayableMoves = new HashSet<>();
     }
 
     @Override

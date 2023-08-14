@@ -7,6 +7,16 @@ public class GridCellFactory implements GridCellFactoryAPI {
 
     public static GridCellBuilder gridCellBuilder = new GridCellBuilder();
 
+    public static GridCellFactory instance;
+    public GridCellFactory() {
+    }
+    public synchronized static GridCellFactory getInstance() {
+        if (instance == null) {
+            instance = new GridCellFactory();
+        }
+        return instance;
+    }
+
     @Override
     public GridCell createGrid(Position position) {
         gridCellBuilder.setPosition(position);

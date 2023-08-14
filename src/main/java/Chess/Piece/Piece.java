@@ -14,6 +14,11 @@ public class Piece {
         this.pieceType = pieceType;
     }
 
+    public Piece(PieceType pieceType, List<MoveRule> moveRuleList) {
+        this.pieceType = pieceType;
+        this.moveRuleList = moveRuleList;
+    }
+
     public PieceType getPieceType() {
         return pieceType;
     }

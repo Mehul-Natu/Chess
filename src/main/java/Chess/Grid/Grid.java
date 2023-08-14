@@ -36,12 +36,6 @@ public class Grid {
         System.out.println("  ---------------------------------");
 
 
-        PieceType pieceType = PieceType.BlackKnight;
-        Piece king1 = new Piece(pieceType,null);
-        PieceManager king = new PieceManager(king1, new Position(1, 0));
-
-        grid[1][1].setCurrentPiece(king);
-
         int count = 8;
         for (int i = 0; i < 8; i++) {
             System.out.print(count + " ");

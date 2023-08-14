@@ -19,7 +19,7 @@ public class AttackBlockerManager {
         }
     }
 
-    public Set<Position> getPositionBetweenAttackerAndVictim(Position startingPos, Position endingPos, ) {
+    public Set<Position> getPositionBetweenAttackerAndVictim(Position startingPos, Position endingPos) {
         return null;
     }
 

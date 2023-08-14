@@ -126,5 +126,11 @@ public class PieceManager implements Observable {
         return currentPosition;
     }
 
+    public void setPiece(Piece piece) {
+        this.piece = piece;
+    }
 
+    public void setCurrentPosition(Position currentPosition) {
+        this.currentPosition = currentPosition;
+    }
 }

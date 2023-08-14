@@ -9,6 +9,10 @@ import Chess.Move.MoveGenerator.impl.MGSafeBlankKill;
 import Chess.Move.MoveRule;
 import Chess.Move.MoveType;
 import Chess.Move.PlayableMove;
+import Chess.Piece.Builder.PieceBuilder;
+import Chess.Piece.Builder.PieceBuilderFactory;
+import Chess.Piece.Builder.PieceManagerBuilder;
+import Chess.Piece.Builder.PieceManagerBuilderFactory;
 import Chess.Piece.Observable;
 import Chess.Piece.Piece;
 import Chess.Piece.PieceManager;
@@ -32,7 +36,8 @@ public class Runner {
 
         //testForKnight();
         //testForQueen();
-        testForRookNQueen();
+//        testForRookNQueen();
+        testPieceBuilder();
 
     }
 
@@ -293,6 +298,31 @@ public class Runner {
 
     }
 
+
+    public static void testPieceBuilder(){
+        try {
+
+            List<MoveRule> moveRuleList = new ArrayList<>();
+
+            moveRuleList.add(new MoveRule(MoveType.blank_kill, new int[] {0, MoveConstants.INFINITE_ADD}));
+            moveRuleList.add(new MoveRule(MoveType.blank_kill, new int[] {0, MoveConstants.INFINITE_SUBTRACT}));
+            moveRuleList.add(new MoveRule(MoveType.blank_kill, new int[] {MoveConstants.INFINITE_ADD, 0}));
+            moveRuleList.add(new MoveRule(MoveType.blank_kill, new int[] {MoveConstants.INFINITE_SUBTRACT, 0}));
+            moveRuleList.add(new MoveRule(MoveType.blank_kill, new int[] {MoveConstants.INFINITE_ADD, MoveConstants.INFINITE_ADD}));
+            moveRuleList.add(new MoveRule(MoveType.blank_kill, new int[] {MoveConstants.INFINITE_SUBTRACT, MoveConstants.INFINITE_ADD}));
+            moveRuleList.add(new MoveRule(MoveType.blank_kill, new int[] {MoveConstants.INFINITE_ADD, MoveConstants.INFINITE_SUBTRACT}));
+            moveRuleList.add(new MoveRule(MoveType.blank_kill, new int[] {MoveConstants.INFINITE_SUBTRACT, MoveConstants.INFINITE_SUBTRACT}));
+
+
+
+            Grid grid1 = new Grid();
+            MoveGeneratorAPI.setGrid(grid1);
+            PieceManagerBuilderFactory.getInstance().createPiece(new PieceManagerBuilder().setPiece(PieceBuilderFactory.getInstance().createPiece(new PieceBuilder().setPieceType(PieceType.BlackQueen).setMoveRuleList(moveRuleList))).setCurrentPosition(new Position(0,0))).refreshMoves();
+
+        } catch (Exception e){
+
+        }
+    }
 
 
 }

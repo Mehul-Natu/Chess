@@ -4,6 +4,7 @@ import Chess.Grid.Grid;
 import Chess.Move.MoveGenerator.MoveGeneratorBasedAPI;
 import Chess.Move.MoveType;
 import Chess.Move.PlayableMove;
+import Chess.Piece.PieceManager;
 import Chess.Position;
 
 import java.util.HashSet;
@@ -33,7 +34,8 @@ public class MGJumpBlankKill extends MoveGeneratorBasedAPI {
         int yIndex = position.getY() + xAndyMagnitude[1];
 
         if (isInBound(xIndex, yIndex)) {
-            if (getGrid().getGridCell(xIndex, yIndex).getCurrentPiece() == null) {
+            PieceManager pieceManager = getGrid().getGridCell(xIndex, yIndex).getCurrentPiece();
+            if (pieceManager == null || pieceManager.isBlack() != this.pieceType.isBlack()) {
                 playableMoves.add(new PlayableMove(xIndex, yIndex, MoveType.jump_blank_kill));
             }
         }

@@ -48,6 +48,10 @@ public class PieceManager implements Observable {
         return this.piece;
     }
 
+    public boolean isBlack() {
+        return this.piece.getPieceType().isBlack();
+    }
+
     public void refreshCurrentPlayableMoves() {
         Set<PlayableMove> set = new HashSet<>();
         for (MoveRule rule : piece.getMoveRuleList()) {

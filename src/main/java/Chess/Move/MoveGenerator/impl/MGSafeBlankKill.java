@@ -32,7 +32,7 @@ public class MGSafeBlankKill extends MoveGeneratorBasedAPI {
         int xIndex = position.getX() + xAndyMagnitude[0];
         int yIndex = position.getY() + xAndyMagnitude[1];
 
-        if (isInBound(xIndex, yIndex)) {
+        if (isInBound(xIndex, yIndex) && getGrid().getGridCell(xIndex, yIndex).getCurrentPiece() == null) {
             List<Observable> listOfAttackers = getGrid().getGridCell(xIndex, yIndex)
                     .getObservers(getPieceType().isBlack());
             if (listOfAttackers.size() == 0) {

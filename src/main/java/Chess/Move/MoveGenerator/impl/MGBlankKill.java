@@ -4,6 +4,7 @@ import Chess.Grid.Grid;
 import Chess.Move.MoveGenerator.MoveGeneratorBasedAPI;
 import Chess.Move.MoveType;
 import Chess.Move.PlayableMove;
+import Chess.Piece.PieceManager;
 import Chess.Position;
 
 import java.util.HashSet;
@@ -70,11 +71,13 @@ public class MGBlankKill extends MoveGeneratorBasedAPI {
             yIndex += yAdder;
 
             while (xIndex != xLimit && yIndex != yLimit) {
-
-                if (getGrid().getGridCell(xIndex, yIndex).getCurrentPiece() == null) {
+                PieceManager pieceManager = getGrid().getGridCell(xIndex, yIndex).getCurrentPiece();
+                if (pieceManager == null) {
                     playableMoves.add(new PlayableMove(xIndex, yIndex, MoveType.blank_kill));
                 } else {
-                    playableMoves.add(new PlayableMove(xIndex, yIndex, MoveType.blank_kill));
+                    if (pieceManager.isBlack() != this.pieceType.isBlack()) {
+                        playableMoves.add(new PlayableMove(xIndex, yIndex, MoveType.blank_kill));
+                    }
                     break;
                 }
                 xIndex += xAdder;
@@ -85,7 +88,8 @@ public class MGBlankKill extends MoveGeneratorBasedAPI {
             xIndex += xAndyMagnitude[0];
             yIndex += xAndyMagnitude[1];
 
-            if (isInBound(xIndex, yIndex)) {
+            if (isInBound(xIndex, yIndex) && getGrid().getGridCell(xIndex, yIndex).getCurrentPiece().isBlack()
+            != this.pieceType.isBlack()) {
                 playableMoves.add(new PlayableMove(xIndex, yIndex, MoveType.blank_kill));
             }
 

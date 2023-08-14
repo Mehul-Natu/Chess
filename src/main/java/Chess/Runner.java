@@ -49,8 +49,11 @@ public class Runner {
             moveRuleList.add(new MoveRule(MoveType.jump_blank_kill, new int[] {-1, -2}));
 
 
+
             PieceManager pieceManager = new PieceManager(new Piece(PieceType.BlackKnight, moveRuleList), new Position(4, 4));
             grid1.setPiece(pieceManager, new Position(4, 4));
+
+
 
             MoveGeneratorBasedAPI.setGrid(grid1);
             pieceManager.refreshCurrentPlayableMoves();

@@ -131,16 +131,13 @@ public class PieceManager implements Observable {
         this.hostageToAttackBlockerMap.remove(saviourOf);
     }
 
-    public Position getCurrentPosition() {
-        return currentPosition;
-    }
-
     public void setPiece(Piece piece) {
         this.piece = piece;
     }
 
     public void setCurrentPosition(Position currentPosition) {
         this.currentPosition = currentPosition;
+        this.refreshMoves();
     }
 
     @Override
@@ -149,19 +146,19 @@ public class PieceManager implements Observable {
     }
 
 
-    public boolean isKingSaver() {
+    public AttackBlocker getAttackBlockerIfKingSaver() {
         for (PieceManager pieceManager : this.hostageToAttackBlockerMap.keySet()) {
             if (isBlack()) {
                 if (BlackKing.equals(pieceManager.getPiece().getPieceType())) {
-                    return true;
+                    return this.hostageToAttackBlockerMap.get(pieceManager);
                 }
             } else {
                 if (WhiteKing.equals(pieceManager.getPiece().getPieceType())) {
-                    return true;
+                    return this.hostageToAttackBlockerMap.get(pieceManager);
                 }
             }
         }
-        return false;
+        return null;
     }
 
 

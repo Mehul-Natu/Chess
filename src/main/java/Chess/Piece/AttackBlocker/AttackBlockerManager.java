@@ -8,8 +8,15 @@ public class AttackBlockerManager {
 
     AttackBlockerStrategy attackBlockerStrategy;
 
+    Position startingPos;
+
+    Position endingPos;
+
 
     public AttackBlockerStrategy configureStrategy(Position startingPos, Position endingPos) {
+
+        this.startingPos = startingPos;
+        this.endingPos = endingPos;
 
         int xDiff = endingPos.getX() - startingPos.getX();
         int yDiff = endingPos.getY() - startingPos.getY();
@@ -21,19 +28,10 @@ public class AttackBlockerManager {
         }
     }
 
-    public Set<Position> getPositionBetweenAttackerAndVictim(Position startingPos, Position endingPos) {
+    public Set<Position> getPositionBetweenAttackerAndVictim() {
         if (attackBlockerStrategy != null) {
             return null;
         }
-        return attackBlockerStrategy.getAlgo().getPositions(startingPos, endingPos);
-    }
-
-
-    public AttackBlockerStrategy getAttackBlockerStrategy() {
-        return attackBlockerStrategy;
-    }
-
-    public void setAttackBlockerStrategy(AttackBlockerStrategy attackBlockerStrategy) {
-        this.attackBlockerStrategy = attackBlockerStrategy;
+        return attackBlockerStrategy.getAlgo().getPositions(this.startingPos, this.endingPos);
     }
 }

@@ -7,7 +7,6 @@ public class CurrentStateConfiguration {
 
     private GameStateEnum stateEnum;
     private StateAPI stateAPI;
-
     private final Grid grid;
 
     private Player playerOne;
@@ -29,5 +28,13 @@ public class CurrentStateConfiguration {
 
     public void setStateAPI(StateAPI stateAPI) {
         this.stateAPI = stateAPI;
+    }
+
+    public void setPlayerOne(Player playerOne) {
+        this.playerOne = playerOne;
+    }
+
+    public void setPlayerTwo(Player playerTwo) {
+        this.playerTwo = playerTwo;
     }
 }

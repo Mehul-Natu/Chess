@@ -5,18 +5,23 @@ import Chess.Game.GridResponse;
 import Chess.Game.Player;
 import Chess.Grid.Builder.GridCellFactory;
 import Chess.Grid.Builder.GridCellFactoryAPI;
+import Chess.Move.MovementEncapsulator;
+import Chess.Move.MovementImplementor;
+import Chess.Move.MovementResponse;
 import Chess.Piece.PieceManager;
 import Chess.Position;
+
+import static Chess.Move.MovementResponse.MovementResponseType.MOVED_SUCCESSFULLY;
 
 public class Grid implements GameToGridBridgeAbstraction {
 
     GridCell[][] grid;
-
     GridCellFactoryAPI gridCellFactory;
 
-
+    MovementImplementor movementImplementor;
 
     public Grid() {
+        this.movementImplementor = new MovementEncapsulator(this);
         this.grid = new GridCell[8][8];
         this.gridCellFactory = new GridCellFactory();
 
@@ -31,6 +36,7 @@ public class Grid implements GameToGridBridgeAbstraction {
 
     public void setPiece(PieceManager pieceManager, Position position) {
         grid[position.getX()][position.getY()].setCurrentPiece(pieceManager);
+        pieceManager.setCurrentPosition(position);
     }
 
 
@@ -68,18 +74,22 @@ public class Grid implements GameToGridBridgeAbstraction {
         return grid[position.getX()][position.getY()];
     }
 
-    @Override
-    public GridResponse checkMoveCorrectness(Position starting, Position ending, Player player) {
-        return null;
-    }
 
     @Override
     public GridResponse makeMove(Position starting, Position ending, Player player) {
-        return null;
+
+        MovementResponse movementResponse = movementImplementor.makeMove(starting, ending, player);
+
+        if (MOVED_SUCCESSFULLY.equals(movementResponse.getMovementResponseType())) {
+            return new GridResponse(GridResponse.StatusEnum.SUCCESSFULLY_MOVED);
+        } else {
+            return new GridResponse(GridResponse.StatusEnum.ERROR_MOVING, movementResponse.getMovementResponseType().getMessage());
+        }
     }
 
     @Override
     public GridResponse checkForCheckMate(Player lastMoved) {
+
         return null;
     }
 }

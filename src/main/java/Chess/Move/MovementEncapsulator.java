@@ -3,14 +3,14 @@ package Chess.Move;
 import Chess.Game.Player;
 import Chess.Grid.Grid;
 import Chess.Grid.GridCell;
+import Chess.Piece.AttackBlocker.AttackBlocker;
 import Chess.Piece.AttackBlocker.AttackBlockerManager;
 import Chess.Piece.PieceManager;
 import Chess.Position;
 
 import java.util.Set;
 
-import static Chess.Move.MovementResponse.MovementResponseType.EMPTY_GRID_CELL;
-import static Chess.Move.MovementResponse.MovementResponseType.WRONG_PIECE_SELECTED;
+import static Chess.Move.MovementResponse.MovementResponseType.*;
 
 public class MovementEncapsulator implements MovementImplementor {
 
@@ -23,32 +23,7 @@ public class MovementEncapsulator implements MovementImplementor {
         attackBlockerManager = new AttackBlockerManager();
     }
 
-    public boolean playMove(Player player, Grid grid, Position startingPosition, Position endingPosition) {
-        GridCell gridCell = grid.getGridCell(startingPosition);
-
-        if (!gridCell.hasPiece()) {
-            System.out.println("Empty Position selected");
-            return false;
-        }
-
-        if (gridCell.getCurrentPiece().isBlack() != player.isBlack()) {
-            System.out.println("Wrong Piece selected");
-            return false;
-        }
-
-        PieceManager pieceManager = gridCell.getCurrentPiece();
-
-        if (!pieceManager.containsPlayableMove(endingPosition)) {
-            System.out.println("Cannot play this move");
-            return false;
-        }
-
-        //todo adapter for piece manager and cell grid
-        return false;
-
-    }
-
-
+/*
     public void refreshObserverAndMovements(PieceManager pieceManager, Grid grid) {
         pieceManager.refreshMoves();
         Set<IndirectMove> indirectMoves = pieceManager.getIndirectMoves();
@@ -67,6 +42,7 @@ public class MovementEncapsulator implements MovementImplementor {
             cell.addInDirectMover(pieceManager);
         }
     }
+ */
 
     @Override
     public MovementResponse makeMove(Position startingPos, Position endingPos, Player player) {
@@ -83,20 +59,27 @@ public class MovementEncapsulator implements MovementImplementor {
         }
 
         PieceManager currentPiece = gridCell.getCurrentPiece();
+        AttackBlocker attackBlockerKing = currentPiece.getAttackBlockerIfKingSaver();
 
-        if (currentPiece.isKingSaver()) {
+
+        if (attackBlockerKing != null) {
             Set<PlayableMove> playableMoves = currentPiece.getCurrentPlayableMoves();
-            //attackBlockerManager.
+            attackBlockerManager.configureStrategy(attackBlockerKing.getAttackedBy().getPosition(),
+                    attackBlockerKing.getSaving().getPosition());
+            Set<Position> playablePosWhileSavingKing = attackBlockerManager.getPositionBetweenAttackerAndVictim();
 
-        } else if (currentPiece.containsPlayableMove(endingPos)) {
+            playablePosWhileSavingKing.retainAll(playableMoves);
+            if (!playablePosWhileSavingKing.contains(endingPos)) {
+                return new MovementResponse(CANNOT_MOVE_WITHOUT_DEFENDING_KING);
+            }
+        } else if (!currentPiece.containsPlayableMove(endingPos)) {
             System.out.println("Cannot play this move");
-            //return false;
-
+            return new MovementResponse(CANNOT_MOVE_THERE);
         }
-
-
-
-        //todo adapter for piece manager and cell grid
-        return null;
+        // everything is checked now
+        //to check everything after this
+        grid.setPiece(currentPiece, endingPos);
+        //currentPiece.setCurrentPosition(endingPos);
+        return new MovementResponse(MOVED_SUCCESSFULLY);
     }
 }

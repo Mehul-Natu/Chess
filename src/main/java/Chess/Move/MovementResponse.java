@@ -10,7 +10,9 @@ public class MovementResponse {
         EMPTY_GRID_CELL("The grid cell is empty"),
         WRONG_PIECE_SELECTED("Wrong piece selected"),
         CANNOT_MOVE_THERE("Cannot move your piece there"),
-        CANNOT_MOVE_WITHOUT_DEFENDING_KING("Cannot move to that position otherwise king will get check");
+        CANNOT_MOVE_WITHOUT_DEFENDING_KING("Cannot move to that position otherwise king will get check"),
+        MOVED_SUCCESSFULLY("Made the move successfully");
+
 
 
         MovementResponseType(String message) {
@@ -18,6 +20,10 @@ public class MovementResponse {
         }
 
         private String message;
+
+        public String getMessage() {
+            return message;
+        }
     }
 
 

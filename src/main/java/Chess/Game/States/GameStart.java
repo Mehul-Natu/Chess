@@ -16,6 +16,14 @@ public class GameStart implements StateAPI {
         // here take player names and initalize the grid for starting and
         //change the state to firstplayer move
 
+        String firstPlayerName = "LOL";
+        String secondPlayerName = "YOLO1";
+
+        currentState.
+
     }
+
+
+
 
 }

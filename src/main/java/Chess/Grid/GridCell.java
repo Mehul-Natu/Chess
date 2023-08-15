@@ -122,19 +122,26 @@ public class GridCell implements Observer {
     }
 
     public void setCurrentPiece(PieceManager currentPiece) {
-        if (this.currentPiece != null) {
 
-            if (WhiteKing.equals(currentPiece.getPiece().getPieceType())) {
-                whiteKingPos = this.position;
-            } else if (BlackKing.equals(currentPiece.getPiece().getPieceType())) {
-                blackKingPos = this.position;
-            }
-
-            runDetailStatsForCurrentPiece();
-        } else {
-            removeAttackBlockers();
+        if (currentPiece != null && WhiteKing.equals(currentPiece.getPiece().getPieceType())) {
+            whiteKingPos = this.position;
+        } else if (currentPiece != null && BlackKing.equals(currentPiece.getPiece().getPieceType())) {
+            blackKingPos = this.position;
         }
-        this.currentPiece = currentPiece;
+
+        if (currentPiece != null && this.currentPiece != null) {
+            removeAttackBlockers();
+            this.currentPiece = currentPiece;
+            runDetailStatsForCurrentPiece();
+
+        } else if (currentPiece == null && this.currentPiece != null) {
+            removeAttackBlockers();
+            this.currentPiece = currentPiece;
+        } else {
+            this.currentPiece = currentPiece;
+            runDetailStatsForCurrentPiece();
+        }
+
     }
 
 

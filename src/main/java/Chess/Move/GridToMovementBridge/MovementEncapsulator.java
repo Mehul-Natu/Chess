@@ -64,6 +64,7 @@ public class MovementEncapsulator implements MovementImplementor {
         }
 
         PieceManager currentPiece = gridCell.getCurrentPiece();
+        currentPiece.refreshMoves();
         AttackBlocker attackBlockerKing = currentPiece.getAttackBlockerIfKingSaver();
 
 

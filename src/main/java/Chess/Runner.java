@@ -26,19 +26,17 @@ import java.util.*;
 public class Runner {
 
     public static void main(String[] args) {
-        AttackerBlockerPositionCalculatorAPI api = InclinedLineCalculator.getInstance();
-        api.getPositions(new Position(5, 4), new Position(7, 6));
+       // AttackerBlockerPositionCalculatorAPI api = InclinedLineCalculator.getInstance();
+       // api.getPositions(new Position(5, 4), new Position(7, 6));
 
-        /*
+
         ChessGame chessGame = new ChessGame();
 
-        Command<String, String> command;
+        //Command<String, String> command;
 
         while (true) {
             chessGame.operate();
         }
-
-         */
 
     }
 

@@ -1,9 +1,13 @@
 package Chess.Game.States;
 
+import Chess.Game.Command.Command;
 import Chess.Game.GridResponse;
+import Chess.Game.Receiver.ReceiverPosition;
 import Chess.Game.StateAPI;
 import Chess.Game.CurrentStateConfiguration;
 import Chess.Position;
+
+import java.util.Scanner;
 
 import static Chess.Game.GridResponse.StatusEnum.ERROR_MOVING;
 
@@ -22,8 +26,19 @@ public class PlayerTwoMoves implements StateAPI {
         // then do not make any changes in state configurations
         //if correct move then move onto check or checkmate state
 
-        Position startingPosition = new Position(1, 0);
-        Position endingPosition = new Position(2, 0);
+        Position startingPosition = null;
+        Position endingPosition = null;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter starting position");
+        String startingPos = scanner.nextLine();
+        System.out.println("Enter ending position");
+        String endingPos = scanner.nextLine();
+
+
+        Command<Position, Position> input = new Command<>(new ReceiverPosition(), startingPos.strip(), endingPos.strip());
+        input.execute();
+        startingPosition = input.getOutputPair().getFieldOne();
+        endingPosition = input.getOutputPair().getFieldTwo();
 
         GridResponse response = currentState.getGrid().makeMove(startingPosition, endingPosition, currentState.getPlayerTwo());
 
@@ -33,6 +48,8 @@ public class PlayerTwoMoves implements StateAPI {
         } else {
             System.out.println("SuccessfullyMoved");
             currentState.setStateAPI(currentState.getCheckOrCheckMate());
+            currentState.setLastMoveByPlayerOne(false);
+            currentState.getGrid().printBoard();
         }
     }
 

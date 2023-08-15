@@ -105,6 +105,8 @@ public class PieceManager implements Observable {
             playableMoves.addAll(moveGenerator.getDirectMoves(this.currentPosition));
             indirectMoves.addAll(moveGenerator.getInDirectMoves(this.currentPosition));
         }
+        this.indirectMoves.clear();
+        this.currentPlayableMoves.clear();
         this.indirectMoves.addAll(indirectMoves);
         this.currentPlayableMoves.addAll(playableMoves);
         this.notifyObserver();

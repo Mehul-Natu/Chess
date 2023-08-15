@@ -34,7 +34,7 @@ public class MGBlankKill extends MoveGeneratorAPI {
         int yIndex = position.getY();
 
         if ((xAndyMagnitude[0] == INFINITE_ADD || xAndyMagnitude[0] == INFINITE_SUBTRACT)
-                || (xAndyMagnitude[1] != INFINITE_ADD || xAndyMagnitude[1] != INFINITE_SUBTRACT)) {
+                || (xAndyMagnitude[1] == INFINITE_ADD || xAndyMagnitude[1] == INFINITE_SUBTRACT)) {
 
             int xAdder;
             int yAdder;

@@ -85,6 +85,12 @@ public class MovementEncapsulator implements MovementImplementor {
         // everything is checked now
         //to check everything after this
         grid.getGridCell(startingPos).setCurrentPiece(null);
+
+        if (grid.getGridCell(endingPos).getCurrentPiece() != null) {
+            PieceManager killedPiece = grid.getGridCell(endingPos).getCurrentPiece();
+            killedPiece.dead();
+        }
+
         grid.setPiece(currentPiece, endingPos);
         //currentPiece.setCurrentPosition(endingPos);
         return new MovementResponse(MOVED_SUCCESSFULLY);
@@ -129,7 +135,7 @@ public class MovementEncapsulator implements MovementImplementor {
                     }
                 }
 
-                MovementResponse<Player> response = new MovementResponse<Player>(CHECK);
+                MovementResponse<Player> response = new MovementResponse<Player>(CHECKMATE);
                 response.setExtraField(!opponentColorIsBlack ? stateConfiguration.getPlayerOne() : stateConfiguration.getPlayerTwo());
                 return response;
 

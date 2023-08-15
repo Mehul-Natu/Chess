@@ -23,6 +23,8 @@ public class CheckOrCheckmate implements StateAPI {
 
         if (GridResponse.StatusEnum.CHECK.equals(response.getStatusEnum())) {
             System.out.println(player.getName() + " You have check on you");
+            currentState.setStateAPI(currentState.getLastMoveByPlayerOne()
+                    ? currentState.getPlayerTwoMoves() : currentState.getPlayerOneMoves());
         } else if (GridResponse.StatusEnum.CHECKMATED.equals(response.getStatusEnum())) {
             System.out.println(player.getName() + " Loses");
             currentState.setStateAPI(currentState.getResultState());

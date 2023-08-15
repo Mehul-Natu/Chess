@@ -33,8 +33,8 @@ public class MGKill extends MoveGeneratorAPI {
         if (isInBound(xIndex, yIndex)) {
             PieceManager pieceManager = getGrid().getGridCell(xIndex, yIndex).getCurrentPiece();
             if (pieceManager != null
-                    && pieceManager.getPiece().getPieceType().isBlack() == this.pieceType.isBlack()) {
-                playableMoves.add(new PlayableMove(xIndex, yIndex, MoveType.jump_blank_kill));
+                    && pieceManager.getPiece().getPieceType().isBlack() != this.pieceType.isBlack()) {
+                playableMoves.add(new PlayableMove(xIndex, yIndex, MoveType.kill));
             }
         }
         return playableMoves;

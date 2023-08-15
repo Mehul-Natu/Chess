@@ -129,17 +129,16 @@ public class GridCell implements Observer {
             blackKingPos = this.position;
         }
 
-        if (currentPiece != null && this.currentPiece != null) {
+        if (this.currentPiece != null) {
             removeAttackBlockers();
-            this.currentPiece = currentPiece;
-            runDetailStatsForCurrentPiece();
+        }
 
-        } else if (currentPiece == null && this.currentPiece != null) {
-            removeAttackBlockers();
-            this.currentPiece = currentPiece;
-        } else {
-            this.currentPiece = currentPiece;
+        this.currentPiece = currentPiece;
+
+        if (currentPiece != null) {
             runDetailStatsForCurrentPiece();
+        } {
+
         }
 
     }
@@ -173,7 +172,12 @@ public class GridCell implements Observer {
     private void removeAttackBlockers() {
         for (Observable observable : setOfInDirectMovers) {
             PieceManager pieceManager = (PieceManager) observable;
-            pieceManager.removeAttackBlockerDetails(this.currentPiece);
+            pieceManager.removeAttackBlockerAsSaviourDetails(this.currentPiece);
+
+        }
+        for (Observable observable : setOfDirectMovers) {
+            PieceManager pieceManager = (PieceManager) observable;
+            pieceManager.removeAttackBlockerAsAttackerDetails(this.currentPiece);
         }
     }
 

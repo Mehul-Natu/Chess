@@ -7,7 +7,6 @@ import Chess.Move.MoveRule;
 import Chess.Move.MoveType;
 import Chess.Move.PlayableMove;
 import Chess.Piece.AttackBlocker.AttackBlocker;
-import Chess.Piece.Builder.PieceManagerBuilder;
 import Chess.Position;
 
 import java.util.*;
@@ -21,6 +20,8 @@ public class PieceManager implements Observable {
     Set<IndirectMove> indirectMoves;
     Set<Observer> gridObservers;
     Position currentPosition;
+
+    Boolean dead = false;
 
     HashMap<PieceManager, AttackBlocker> hostageToAttackBlockerMap;
 
@@ -132,8 +133,18 @@ public class PieceManager implements Observable {
         this.hostageToAttackBlockerMap.put(saviourOf, attackBlockerDetails);
     }
 
-    public void removeAttackBlockerDetails(PieceManager saviourOf) {
+    public void removeAttackBlockerAsSaviourDetails(PieceManager saviourOf) {
         this.hostageToAttackBlockerMap.remove(saviourOf);
+    }
+
+    public void removeAttackBlockerAsAttackerDetails(PieceManager attacker) {
+        Set<PieceManager> toBeRemoved = new HashSet<>();
+        for (PieceManager pieceManager : this.hostageToAttackBlockerMap.keySet()) {
+            if (this.hostageToAttackBlockerMap.get(pieceManager).getAttackedBy().equals(attacker)) {
+                toBeRemoved.add(pieceManager);
+            }
+        }
+        this.hostageToAttackBlockerMap.keySet().removeAll(toBeRemoved);
     }
 
     public void setPiece(Piece piece) {
@@ -166,6 +177,14 @@ public class PieceManager implements Observable {
             }
         }
         return null;
+    }
+
+    public void dead() {
+        this.currentPlayableMoves.clear();
+        this.indirectMoves.clear();
+        this.notifyObserver();
+        this.gridObservers.clear();
+        this.dead = true;
     }
 
 

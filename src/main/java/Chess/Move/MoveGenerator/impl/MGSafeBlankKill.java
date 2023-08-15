@@ -33,7 +33,7 @@ public class MGSafeBlankKill extends MoveGeneratorAPI {
 
         if (isInBound(xIndex, yIndex) && getGrid().getGridCell(xIndex, yIndex).getCurrentPiece() == null) {
             List<Observable> listOfAttackers = getGrid().getGridCell(xIndex, yIndex)
-                    .getDirectMovers(getPieceType().isBlack());
+                    .getDirectMovers(!getPieceType().isBlack());
             if (listOfAttackers.size() == 0) {
                 playableMoves.add(new PlayableMove(xIndex, yIndex, MoveType.safe_blank_kill));
             }

@@ -1,18 +1,18 @@
 package Chess.Piece;
 
 public enum PieceType {
-    BlackKnight("\u265E", true),
-    BlackRook("\u265C", true),
-    BlackQueen("\u265B", true),
-    BlackKing("\u265A", true),
-    BlackPawn("\u265F", true),
-    BlackBishop("\u265D", true),
-    WhiteKnight("\u2658", false),
-    WhiteRook("\u2656", false),
-    WhiteQueen("\u2655", false),
-    WhiteKing("\u2654", false),
-    WhitePawn("\u2659", false),
-    WhiteBishop("\u2657", false);
+    BlackKnight("\u2658", true),
+    BlackRook("\u2656", true),
+    BlackQueen("\u2655", true),
+    BlackKing("\u2654", true),
+    BlackPawn("\u2659", true),
+    BlackBishop("\u2657", true),
+    WhiteKnight("\u265E", false),
+    WhiteRook("\u265C", false),
+    WhiteQueen("\u265B", false),
+    WhiteKing("\u265A", false),
+    WhitePawn("\u265F", false),
+    WhiteBishop("\u265D", false);
 
     private final String pieceColorUnicode;
 

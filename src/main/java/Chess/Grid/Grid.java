@@ -60,98 +60,89 @@ public class Grid implements GameToGridBridgeAbstraction {
         PieceManager blackQueen = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
         pieceBuilder.setPieceType(PieceType.BlackKing).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackKing));
+        pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager blackKing = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
         pieceBuilder.setPieceType(PieceType.BlackRook).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackRook));
+        pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager blackRook1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
-        pieceBuilder.setPieceType(PieceType.BlackRook).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackRook));
         PieceManager blackRook2 = blackRook1.clone();
 
         pieceBuilder.setPieceType(PieceType.BlackKnight).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackKnight));
+        pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager blackKnight1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
-        pieceBuilder.setPieceType(PieceType.BlackKnight).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackKnight));
         PieceManager blackKnight2 = blackKnight1.clone();
 
         pieceBuilder.setPieceType(PieceType.BlackBishop).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackBishop));
+        pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager blackBishop1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
-        pieceBuilder.setPieceType(PieceType.BlackBishop).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackBishop));
         PieceManager blackBishop2 = blackBishop1.clone();
 
         pieceBuilder.setPieceType(PieceType.BlackPawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackPawn));
+        pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager blackPawn1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
-        pieceBuilder.setPieceType(PieceType.BlackPawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackPawn));
         PieceManager blackPawn2 = blackPawn1.clone();
 
-        pieceBuilder.setPieceType(PieceType.BlackPawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackPawn));
         PieceManager blackPawn3 = blackPawn1.clone();
 
-        pieceBuilder.setPieceType(PieceType.BlackPawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackPawn));
         PieceManager blackPawn4 = blackPawn1.clone();
 
-        pieceBuilder.setPieceType(PieceType.BlackPawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackPawn));
         PieceManager blackPawn5 = blackPawn1.clone();
 
-        pieceBuilder.setPieceType(PieceType.BlackPawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackPawn));
         PieceManager blackPawn6 = blackPawn1.clone();
 
-        pieceBuilder.setPieceType(PieceType.BlackPawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackPawn));
         PieceManager blackPawn7 = blackPawn1.clone();
 
-        pieceBuilder.setPieceType(PieceType.BlackPawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackPawn));
         PieceManager blackPawn8 = blackPawn1.clone();
 
 
         //Setting White Pieces
         pieceBuilder.setPieceType(PieceType.WhiteQueen).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhiteQueen));
+        pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager whiteQueen = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
         pieceBuilder.setPieceType(PieceType.WhiteKing).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhiteKing));
+        pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager whiteKing = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
         pieceBuilder.setPieceType(PieceType.WhiteRook).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhiteRook));
+        pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager whiteRook1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
-        pieceBuilder.setPieceType(PieceType.WhiteRook).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhiteRook));
         PieceManager whiteRook2 = whiteRook1.clone();
 
         pieceBuilder.setPieceType(PieceType.WhiteKnight).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhiteKnight));
+        pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager whiteKnight1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
-        pieceBuilder.setPieceType(PieceType.WhiteKnight).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhiteKnight));
         PieceManager whiteKnight2 = whiteKnight1.clone();
 
         pieceBuilder.setPieceType(PieceType.WhiteBishop).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhiteBishop));
+        pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager whiteBishop1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
-        pieceBuilder.setPieceType(PieceType.WhiteBishop).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhiteBishop));
         PieceManager whiteBishop2 = whiteBishop1.clone();
 
         pieceBuilder.setPieceType(PieceType.WhitePawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhitePawn));
+        pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager whitePawn1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
-        pieceBuilder.setPieceType(PieceType.WhitePawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhitePawn));
         PieceManager whitePawn2 = whitePawn1.clone();
 
-        pieceBuilder.setPieceType(PieceType.WhitePawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhitePawn));
         PieceManager whitePawn3 = whitePawn1.clone();
 
-        pieceBuilder.setPieceType(PieceType.WhitePawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhitePawn));
         PieceManager whitePawn4 = whitePawn1.clone();
 
-        pieceBuilder.setPieceType(PieceType.WhitePawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhitePawn));
         PieceManager whitePawn5 = whitePawn1.clone();
 
-        pieceBuilder.setPieceType(PieceType.WhitePawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhitePawn));
         PieceManager whitePawn6 = whitePawn1.clone();
 
-        pieceBuilder.setPieceType(PieceType.WhitePawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhitePawn));
         PieceManager whitePawn7 = whitePawn1.clone();
 
-        pieceBuilder.setPieceType(PieceType.WhitePawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhitePawn));
         PieceManager whitePawn8 = whitePawn1.clone();
 
 
@@ -195,38 +186,38 @@ public class Grid implements GameToGridBridgeAbstraction {
 
 
         setPiece(blackRook1 , new Position(0,0));
-        setPiece(blackKnight1 , new Position(1,0));
-        setPiece(blackBishop1 , new Position(2,0));
-        setPiece(blackQueen , new Position(3,0));
-        setPiece(blackKing , new Position(4,0));
-        setPiece(blackBishop2 , new Position(5,0));
-        setPiece(blackKnight2 , new Position(6,0));
-        setPiece(blackRook2 , new Position(7,0));
-        setPiece(blackPawn1 , new Position(0,1));
+        setPiece(blackKnight1 , new Position(0,1));
+        setPiece(blackBishop1 , new Position(0,2));
+        setPiece(blackQueen , new Position(0,3));
+        setPiece(blackKing , new Position(0,4));
+        setPiece(blackBishop2 , new Position(0,5));
+        setPiece(blackKnight2 , new Position(0,6));
+        setPiece(blackRook2 , new Position(0,7));
+        setPiece(blackPawn1 , new Position(1,0));
         setPiece(blackPawn2 , new Position(1,1));
-        setPiece(blackPawn3 , new Position(2,1));
-        setPiece(blackPawn4 , new Position(3,1));
-        setPiece(blackPawn5 , new Position(4,1));
-        setPiece(blackPawn6 , new Position(5,1));
-        setPiece(blackPawn7 , new Position(6,1));
-        setPiece(blackPawn8 , new Position(7,1));
+        setPiece(blackPawn3 , new Position(1,2));
+        setPiece(blackPawn4 , new Position(1,3));
+        setPiece(blackPawn5 , new Position(1,4));
+        setPiece(blackPawn6 , new Position(1,5));
+        setPiece(blackPawn7 , new Position(1,6));
+        setPiece(blackPawn8 , new Position(1,7));
 
-        setPiece(whiteRook1 , new Position(0,7));
-        setPiece(whiteKnight1 , new Position(1,7));
-        setPiece(whiteBishop1 , new Position(2,7));
-        setPiece(whiteQueen , new Position(3,7));
-        setPiece(whiteKing , new Position(4,7));
-        setPiece(whiteBishop2 , new Position(5,7));
-        setPiece(whiteKnight2 , new Position(6,7));
+        setPiece(whiteRook1 , new Position(7,0));
+        setPiece(whiteKnight1 , new Position(7,1));
+        setPiece(whiteBishop1 , new Position(7,2));
+        setPiece(whiteQueen , new Position(7,3));
+        setPiece(whiteKing , new Position(7,4));
+        setPiece(whiteBishop2 , new Position(7,5));
+        setPiece(whiteKnight2 , new Position(7,6));
         setPiece(whiteRook2 , new Position(7,7));
-        setPiece(whitePawn1 , new Position(0,6));
-        setPiece(whitePawn2 , new Position(1,6));
-        setPiece(whitePawn3 , new Position(2,6));
-        setPiece(whitePawn4 , new Position(3,6));
-        setPiece(whitePawn5 , new Position(4,6));
-        setPiece(whitePawn6 , new Position(5,6));
+        setPiece(whitePawn1 , new Position(6,0));
+        setPiece(whitePawn2 , new Position(6,1));
+        setPiece(whitePawn3 , new Position(6,2));
+        setPiece(whitePawn4 , new Position(6,3));
+        setPiece(whitePawn5 , new Position(6,4));
+        setPiece(whitePawn6 , new Position(6,5));
         setPiece(whitePawn7 , new Position(6,6));
-        setPiece(whitePawn8 , new Position(7,6));
+        setPiece(whitePawn8 , new Position(6,7));
 
     }
 
@@ -253,7 +244,7 @@ public class Grid implements GameToGridBridgeAbstraction {
         System.out.println("  ---------------------------------");
 
 
-        int count = 8;
+        int count = 1;
         for (int i = 0; i < 8; i++) {
             System.out.print(count + " ");
             System.out.print("| ");
@@ -265,7 +256,7 @@ public class Grid implements GameToGridBridgeAbstraction {
                 }
             }
             System.out.print(count);
-            count--;
+            count++;
             System.out.println();
             System.out.println("  ---------------------------------");
         }

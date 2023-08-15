@@ -7,6 +7,7 @@ import Chess.Move.MoveRule;
 import Chess.Move.MoveType;
 import Chess.Move.PlayableMove;
 import Chess.Piece.AttackBlocker.AttackBlocker;
+import Chess.Piece.Builder.PieceManagerBuilder;
 import Chess.Position;
 
 import java.util.HashMap;
@@ -142,7 +143,9 @@ public class PieceManager implements Observable {
 
     @Override
     public PieceManager clone() {
-        return new PieceManager();
+        PieceManager pieceManager = new PieceManager();
+        pieceManager.setPiece(this.piece);
+        return pieceManager;
     }
 
 

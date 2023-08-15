@@ -42,7 +42,7 @@ public class Runner {
         AttackerBlockerPositionCalculatorAPI straightLineCalculator = StraightLineCalculator.getInstance();
         AttackBlockerManager attackBlockerManager = new AttackBlockerManager();
         attackBlockerManager.configureStrategy(new Position(1,0),new Position(5,0));
-        attackBlockerManager.getPositionBetweenAttackerAndVictim(new Position(1,0),new Position(5,0));
+        attackBlockerManager.getPositionBetweenAttackerAndVictim();
 
     }
 

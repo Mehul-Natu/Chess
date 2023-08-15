@@ -31,8 +31,7 @@ public class GridCell implements Observer {
     public void update(Observable observable) {
         //if (observable)
 
-        if (((PieceManager) observable).getPosition().equals(this.position)) {
-            System.out.println("In Here");
+        if ((observable).getPosition().equals(this.position)) {
             return;
         }
 

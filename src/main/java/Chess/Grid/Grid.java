@@ -184,15 +184,6 @@ public class Grid implements GameToGridBridgeAbstraction {
 
         subscribeToAll(pieceList,this);
 
-
-        setPiece(blackRook1 , new Position(0,0));
-        setPiece(blackKnight1 , new Position(0,1));
-        setPiece(blackBishop1 , new Position(0,2));
-        setPiece(blackQueen , new Position(0,3));
-        setPiece(blackKing , new Position(0,4));
-        setPiece(blackBishop2 , new Position(0,5));
-        setPiece(blackKnight2 , new Position(0,6));
-        setPiece(blackRook2 , new Position(0,7));
         setPiece(blackPawn1 , new Position(1,0));
         setPiece(blackPawn2 , new Position(1,1));
         setPiece(blackPawn3 , new Position(1,2));
@@ -201,15 +192,16 @@ public class Grid implements GameToGridBridgeAbstraction {
         setPiece(blackPawn6 , new Position(1,5));
         setPiece(blackPawn7 , new Position(1,6));
         setPiece(blackPawn8 , new Position(1,7));
+        setPiece(blackRook1 , new Position(0,0));
+        setPiece(blackKnight1 , new Position(0,1));
+        setPiece(blackBishop1 , new Position(0,2));
+        setPiece(blackQueen , new Position(0,3));
+        setPiece(blackKing , new Position(0,4));
+        setPiece(blackBishop2 , new Position(0,5));
+        setPiece(blackKnight2 , new Position(0,6));
+        setPiece(blackRook2 , new Position(0,7));
 
-        setPiece(whiteRook1 , new Position(7,0));
-        setPiece(whiteKnight1 , new Position(7,1));
-        setPiece(whiteBishop1 , new Position(7,2));
-        setPiece(whiteQueen , new Position(7,3));
-        setPiece(whiteKing , new Position(7,4));
-        setPiece(whiteBishop2 , new Position(7,5));
-        setPiece(whiteKnight2 , new Position(7,6));
-        setPiece(whiteRook2 , new Position(7,7));
+
         setPiece(whitePawn1 , new Position(6,0));
         setPiece(whitePawn2 , new Position(6,1));
         setPiece(whitePawn3 , new Position(6,2));
@@ -218,6 +210,15 @@ public class Grid implements GameToGridBridgeAbstraction {
         setPiece(whitePawn6 , new Position(6,5));
         setPiece(whitePawn7 , new Position(6,6));
         setPiece(whitePawn8 , new Position(6,7));
+        setPiece(whiteRook1 , new Position(7,0));
+        setPiece(whiteKnight1 , new Position(7,1));
+        setPiece(whiteBishop1 , new Position(7,2));
+        setPiece(whiteQueen , new Position(7,3));
+        setPiece(whiteKing , new Position(7,4));
+        setPiece(whiteBishop2 , new Position(7,5));
+        setPiece(whiteKnight2 , new Position(7,6));
+        setPiece(whiteRook2 , new Position(7,7));
+
 
     }
 

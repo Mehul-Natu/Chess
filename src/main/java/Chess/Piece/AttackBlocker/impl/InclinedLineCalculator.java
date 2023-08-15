@@ -3,6 +3,7 @@ package Chess.Piece.AttackBlocker.impl;
 import Chess.Piece.AttackBlocker.AttackerBlockerPositionCalculatorAPI;
 import Chess.Position;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class InclinedLineCalculator implements AttackerBlockerPositionCalculatorAPI {
@@ -20,6 +21,19 @@ public class InclinedLineCalculator implements AttackerBlockerPositionCalculator
 
     @Override
     public Set<Position> getPositions(Position attacker, Position victim) {
-        return null;
+        Set<Position> set = new HashSet<>();
+
+        int xattacker = attacker.getX();
+        int yattacker = attacker.getY();
+
+        int xvictim = victim.getX();
+        int yvictim = victim.getY();
+
+        int xcalc = xattacker-xvictim;
+        int ycalc = yattacker-yvictim;
+
+
+
+        return set;
     }
 }

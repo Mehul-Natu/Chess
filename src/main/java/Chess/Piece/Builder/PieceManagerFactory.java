@@ -5,7 +5,7 @@ import Chess.Piece.PieceManager;
 public class PieceManagerFactory implements PieceManagerFactoryAPI {
 
     public static PieceManagerFactory instance;
-    public PieceManagerFactory() {
+    private PieceManagerFactory() {
     }
     public synchronized static PieceManagerFactory getInstance() {
         if (instance == null) {

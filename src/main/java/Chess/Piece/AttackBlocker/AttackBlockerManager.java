@@ -13,7 +13,7 @@ public class AttackBlockerManager {
     Position endingPos;
 
 
-    public AttackBlockerStrategy configureStrategy(Position startingPos, Position endingPos) {
+    public void configureStrategy(Position startingPos, Position endingPos) {
 
         this.startingPos = startingPos;
         this.endingPos = endingPos;
@@ -22,14 +22,14 @@ public class AttackBlockerManager {
         int yDiff = endingPos.getY() - startingPos.getY();
 
         if (xDiff == 0 || yDiff == 0) {
-            return AttackBlockerStrategy.StraightLine;
+            attackBlockerStrategy = AttackBlockerStrategy.StraightLine;
         } else {
-            return AttackBlockerStrategy.InclinedLine;
+            attackBlockerStrategy = AttackBlockerStrategy.InclinedLine;
         }
     }
 
     public Set<Position> getPositionBetweenAttackerAndVictim() {
-        if (attackBlockerStrategy != null) {
+        if (attackBlockerStrategy == null) {
             return null;
         }
         return attackBlockerStrategy.getAlgo().getPositions(this.startingPos, this.endingPos);

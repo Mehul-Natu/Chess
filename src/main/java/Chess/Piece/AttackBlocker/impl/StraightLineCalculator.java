@@ -23,6 +23,37 @@ public class StraightLineCalculator implements AttackerBlockerPositionCalculator
     public Set<Position> getPositions(Position attacker, Position victim) {
         Set<Position> set = new HashSet<>();
 
-        return null;
+        int xattacker = attacker.getX();
+        int yattacker = attacker.getY();
+
+        int xvictim = victim.getX();
+        int yvictim = victim.getY();
+
+        int xcalc = xattacker-xvictim;
+        int ycalc = yattacker-yvictim;
+
+        if(xcalc==0){
+            if(ycalc>0){
+                for (int i = yattacker; i > yvictim+1 ; i--){
+                    set.add(new Position(xattacker,i-1));
+                }
+            }else if (ycalc<0){
+                for (int i = yattacker; i < yvictim-1 ; i++){
+                    set.add(new Position(xattacker,i+1));
+                }
+            }
+        } else if(ycalc==0){
+            if(xcalc>0){
+                for (int i = xattacker; i > xvictim+1 ; i--){
+                    set.add(new Position(i-1,yattacker));
+                }
+            }else if (xcalc<0){
+                for (int i = xattacker; i < xvictim-1 ; i++){
+                    set.add(new Position(i+1,yattacker));
+                }
+            }
+        }
+
+        return set;
     }
 }

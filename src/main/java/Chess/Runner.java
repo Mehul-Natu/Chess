@@ -9,6 +9,9 @@ import Chess.Move.MoveGenerator.impl.MGSafeBlankKill;
 import Chess.Move.MoveRule;
 import Chess.Move.MoveType;
 import Chess.Move.PlayableMove;
+import Chess.Piece.AttackBlocker.AttackBlockerManager;
+import Chess.Piece.AttackBlocker.AttackerBlockerPositionCalculatorAPI;
+import Chess.Piece.AttackBlocker.impl.StraightLineCalculator;
 import Chess.Piece.Builder.*;
 import Chess.Piece.Observable;
 import Chess.Piece.Piece;
@@ -34,7 +37,12 @@ public class Runner {
         //testForKnight();
         //testForQueen();
 //        testForRookNQueen();
-        testPieceBuilder();
+//        testPieceBuilder();
+
+        AttackerBlockerPositionCalculatorAPI straightLineCalculator = StraightLineCalculator.getInstance();
+        AttackBlockerManager attackBlockerManager = new AttackBlockerManager();
+        attackBlockerManager.configureStrategy(new Position(1,0),new Position(5,0));
+        attackBlockerManager.getPositionBetweenAttackerAndVictim(new Position(1,0),new Position(5,0));
 
     }
 
@@ -319,16 +327,12 @@ public class Runner {
 //            pieceManager.refreshMoves();
 
             PieceBuilder queenPieceBuilder = new PieceBuilder();
-
             queenPieceBuilder.setPieceType(PieceType.BlackQueen).setMoveRuleList(moveRuleList);
 
             PieceFactory pieceFactory = PieceFactory.getInstance();
 
-
             PieceManagerBuilder queenPieceManagerBuilder = new PieceManagerBuilder();
-//
             queenPieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(queenPieceBuilder)).setCurrentPosition(new Position(1,1));
-
 
             PieceManagerFactory pieceManagerFactory = PieceManagerFactory.getInstance();
             pieceManagerFactory.createPieceManager(queenPieceManagerBuilder).refreshMoves();

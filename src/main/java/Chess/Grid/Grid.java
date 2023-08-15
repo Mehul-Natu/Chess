@@ -8,7 +8,13 @@ import Chess.Grid.Builder.GridCellFactoryAPI;
 import Chess.Move.MovementEncapsulator;
 import Chess.Move.MovementImplementor;
 import Chess.Move.MovementResponse;
+import Chess.Piece.Builder.PieceBuilder;
+import Chess.Piece.Builder.PieceFactory;
+import Chess.Piece.Builder.PieceManagerBuilder;
+import Chess.Piece.Builder.PieceManagerFactory;
+import Chess.Piece.Factory;
 import Chess.Piece.PieceManager;
+import Chess.Piece.PieceType;
 import Chess.Position;
 
 import static Chess.Move.MovementResponse.MovementResponseType.MOVED_SUCCESSFULLY;
@@ -23,15 +29,25 @@ public class Grid implements GameToGridBridgeAbstraction {
     public Grid() {
         this.movementImplementor = new MovementEncapsulator(this);
         this.grid = new GridCell[8][8];
-        this.gridCellFactory = new GridCellFactory();
+        this.gridCellFactory = GridCellFactory.getInstance();
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 this.grid[i][j] = gridCellFactory.createGrid(new Position(i,j));
             }
         }
+    }
 
-        System.out.println(grid[0][0].currentPiece);
+    public void setBaseBoard(){
+        PieceBuilder pieceBuilder = new PieceBuilder();
+        pieceBuilder.setPieceType(PieceType.BlackQueen).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackQueen));
+        PieceFactory pieceFactory = PieceFactory.getInstance();
+        PieceManagerBuilder pieceManagerBuilder = new PieceManagerBuilder();
+        pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder)).setCurrentPosition(new Position(1,1));
+        PieceManagerFactory pieceManagerFactory = PieceManagerFactory.getInstance();
+        PieceManager blackQueen = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
+
+
     }
 
     public void setPiece(PieceManager pieceManager, Position position) {
@@ -89,7 +105,6 @@ public class Grid implements GameToGridBridgeAbstraction {
 
     @Override
     public GridResponse checkForCheckMate(Player lastMoved) {
-
         return null;
     }
 }

@@ -8,7 +8,7 @@ public class GridCellFactory implements GridCellFactoryAPI {
     public static GridCellBuilder gridCellBuilder = new GridCellBuilder();
 
     public static GridCellFactory instance;
-    public GridCellFactory() {
+    private GridCellFactory() {
     }
     public synchronized static GridCellFactory getInstance() {
         if (instance == null) {

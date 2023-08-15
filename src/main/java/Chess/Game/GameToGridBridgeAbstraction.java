@@ -7,7 +7,7 @@ public interface GameToGridBridgeAbstraction {
 
     GridResponse makeMove(Position starting, Position ending, Player player);
 
-    GridResponse checkForCheckMate(Player lastMoved);
+    GridResponse checkForCheckMate(CurrentStateConfiguration stateConfiguration);
 
     public void printBoard();
 

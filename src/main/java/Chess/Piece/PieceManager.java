@@ -10,9 +10,7 @@ import Chess.Piece.AttackBlocker.AttackBlocker;
 import Chess.Piece.Builder.PieceManagerBuilder;
 import Chess.Position;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static Chess.Piece.PieceType.*;
 
@@ -97,9 +95,6 @@ public class PieceManager implements Observable {
     }
 
     public void refreshMoves() {
-        if (WhiteKnight.equals(this.piece.getPieceType())) {
-            System.out.println("hello");
-        }
         Set<PlayableMove> playableMoves = new HashSet<>();
         Set<IndirectMove> indirectMoves = new HashSet<>();
         for (MoveRule rule : piece.getMoveRuleList()) {
@@ -117,6 +112,10 @@ public class PieceManager implements Observable {
 
     public Set<PlayableMove> getCurrentPlayableMoves() {
         return currentPlayableMoves;
+    }
+
+    public List<PlayableMove> getCurrentPlayableMovesList() {
+        return new ArrayList<>(this.currentPlayableMoves);
     }
 
     public Set<IndirectMove> getIndirectMoves() {

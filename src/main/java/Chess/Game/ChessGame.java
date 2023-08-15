@@ -32,11 +32,6 @@ public class ChessGame implements StateAPI  {
         this.stateConfiguration.getStateAPI().operate();
     }
 
-    public void next(){
-    }
-
-
-
 
     public void scan(){
         Scanner scanner = new Scanner(System.in);

@@ -1,13 +1,14 @@
 package Chess.Grid;
 
+import Chess.Game.CurrentStateConfiguration;
 import Chess.Game.GameToGridBridgeAbstraction;
 import Chess.Game.GridResponse;
 import Chess.Game.Player;
 import Chess.Grid.Builder.GridCellFactory;
 import Chess.Grid.Builder.GridCellFactoryAPI;
 import Chess.Move.MoveGenerator.MoveGeneratorAPI;
-import Chess.Move.MovementEncapsulator;
-import Chess.Move.MovementImplementor;
+import Chess.Move.GridToMovementBridge.MovementEncapsulator;
+import Chess.Move.GridToMovementBridge.MovementImplementor;
 import Chess.Move.MovementResponse;
 import Chess.Piece.Builder.PieceBuilder;
 import Chess.Piece.Builder.PieceFactory;
@@ -22,7 +23,7 @@ import Chess.Position;
 import java.util.ArrayList;
 import java.util.List;
 
-import static Chess.Move.MovementResponse.MovementResponseType.MOVED_SUCCESSFULLY;
+import static Chess.Move.MovementResponse.MovementResponseType.*;
 
 public class Grid implements GameToGridBridgeAbstraction {
 
@@ -292,7 +293,18 @@ public class Grid implements GameToGridBridgeAbstraction {
     }
 
     @Override
-    public GridResponse checkForCheckMate(Player lastMoved) {
-        return new GridResponse(GridResponse.StatusEnum.GAME_STILL_ON);
+    public GridResponse checkForCheckMate(CurrentStateConfiguration stateConfiguration) {
+
+        MovementResponse response = movementImplementor.checkOrCheckMate(stateConfiguration);
+
+        if (CHECK.equals(response.getMovementResponseType())) {
+            Player player = (Player) response.getExtraField();
+            return new GridResponse(GridResponse.StatusEnum.CHECK);
+        } else if (CHECKMATE.equals(response.getMovementResponseType())) {
+            return new GridResponse(GridResponse.StatusEnum.CHECKMATED);
+        } else {
+            return new GridResponse(GridResponse.StatusEnum.GAME_STILL_ON);
+        }
+
     }
 }

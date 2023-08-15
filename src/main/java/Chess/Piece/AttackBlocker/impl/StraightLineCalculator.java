@@ -53,7 +53,7 @@ public class StraightLineCalculator implements AttackerBlockerPositionCalculator
                 }
             }
         }
-
+        set.add(attacker);
         return set;
     }
 }

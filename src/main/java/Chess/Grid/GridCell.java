@@ -11,9 +11,16 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static Chess.Piece.PieceType.BlackKing;
+import static Chess.Piece.PieceType.WhiteKing;
+
 public class GridCell implements Observer {
 
     private final Position position;
+
+    private static Position whiteKingPos;
+
+    private static Position blackKingPos;
 
     PieceManager currentPiece;
 
@@ -116,6 +123,13 @@ public class GridCell implements Observer {
 
     public void setCurrentPiece(PieceManager currentPiece) {
         if (this.currentPiece != null) {
+
+            if (WhiteKing.equals(currentPiece.getPiece().getPieceType())) {
+                whiteKingPos = this.position;
+            } else if (BlackKing.equals(currentPiece.getPiece().getPieceType())) {
+                blackKingPos = this.position;
+            }
+
             runDetailStatsForCurrentPiece();
         } else {
             removeAttackBlockers();
@@ -174,5 +188,13 @@ public class GridCell implements Observer {
 
     public void addInDirectMover(Observable inDirectMover) {
         this.setOfInDirectMovers.add(inDirectMover);
+    }
+
+    public static Position getWhiteKingPos() {
+        return whiteKingPos;
+    }
+
+    public static Position getBlackKingPos() {
+        return blackKingPos;
     }
 }

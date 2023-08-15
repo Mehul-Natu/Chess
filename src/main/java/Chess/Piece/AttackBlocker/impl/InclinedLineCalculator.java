@@ -23,16 +23,21 @@ public class InclinedLineCalculator implements AttackerBlockerPositionCalculator
     public Set<Position> getPositions(Position attacker, Position victim) {
         Set<Position> set = new HashSet<>();
 
-        int xattacker = attacker.getX();
-        int yattacker = attacker.getY();
+        int xcalc = attacker.getX() - victim.getX();
+        int ycalc = attacker.getY() - victim.getY();
 
-        int xvictim = victim.getX();
-        int yvictim = victim.getY();
+        int xAdder = xcalc > 0 ? 1 : -1;
+        int yAdder = ycalc > 0 ? 1 : -1;
+        int x = victim.getX() + xAdder;
+        int y = victim.getY() + yAdder;
 
-        int xcalc = xattacker-xvictim;
-        int ycalc = yattacker-yvictim;
+        while (x != attacker.getX() && y != attacker.getY()) {
+            set.add(new Position(x, y));
+            x += xAdder;
+            y += yAdder;
+        }
 
-
+        set.add(attacker);
 
         return set;
     }

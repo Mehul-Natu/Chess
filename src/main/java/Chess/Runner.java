@@ -12,6 +12,7 @@ import Chess.Move.MoveType;
 import Chess.Move.PlayableMove;
 import Chess.Piece.AttackBlocker.AttackBlockerManager;
 import Chess.Piece.AttackBlocker.AttackerBlockerPositionCalculatorAPI;
+import Chess.Piece.AttackBlocker.impl.InclinedLineCalculator;
 import Chess.Piece.AttackBlocker.impl.StraightLineCalculator;
 import Chess.Piece.Builder.*;
 import Chess.Piece.Observable;
@@ -24,12 +25,17 @@ import java.util.*;
 public class Runner {
 
     public static void main(String[] args) {
+        AttackerBlockerPositionCalculatorAPI api = InclinedLineCalculator.getInstance();
+        api.getPositions(new Position(5, 4), new Position(7, 6));
 
+        /*
         ChessGame chessGame = new ChessGame();
 
         while (true) {
             chessGame.operate();
         }
+
+         */
 
     }
 

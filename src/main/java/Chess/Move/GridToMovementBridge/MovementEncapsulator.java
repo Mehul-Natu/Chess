@@ -1,13 +1,18 @@
-package Chess.Move;
+package Chess.Move.GridToMovementBridge;
 
+import Chess.Game.CurrentStateConfiguration;
 import Chess.Game.Player;
 import Chess.Grid.Grid;
 import Chess.Grid.GridCell;
+import Chess.Move.MovementResponse;
+import Chess.Move.PlayableMove;
 import Chess.Piece.AttackBlocker.AttackBlocker;
 import Chess.Piece.AttackBlocker.AttackBlockerManager;
+import Chess.Piece.Observable;
 import Chess.Piece.PieceManager;
 import Chess.Position;
 
+import java.util.List;
 import java.util.Set;
 
 import static Chess.Move.MovementResponse.MovementResponseType.*;
@@ -82,5 +87,58 @@ public class MovementEncapsulator implements MovementImplementor {
         grid.setPiece(currentPiece, endingPos);
         //currentPiece.setCurrentPosition(endingPos);
         return new MovementResponse(MOVED_SUCCESSFULLY);
+    }
+
+    @Override
+    public MovementResponse checkOrCheckMate(CurrentStateConfiguration stateConfiguration) {
+
+        Position kingPos;
+        boolean opponentColorIsBlack;
+
+        if (stateConfiguration.getLastMoveByPlayerOne()) {
+            kingPos = GridCell.getBlackKingPos();
+            opponentColorIsBlack = false;
+        } else {
+            kingPos = GridCell.getWhiteKingPos();
+            opponentColorIsBlack = true;
+        }
+
+        GridCell gridCell = grid.getGridCell(kingPos);
+        List<Observable> attackerList = gridCell.getDirectMovers(opponentColorIsBlack);
+
+        if (attackerList.size() > 0) {
+
+            PieceManager kingPiece = gridCell.getCurrentPiece();
+            kingPiece.refreshMoves();
+            List<PlayableMove> playableMove = kingPiece.getCurrentPlayableMovesList();
+
+            if (playableMove.size() == 0) {
+
+                Position attackerPos = attackerList.get(0).getPosition();
+                attackBlockerManager.configureStrategy(kingPos, attackerPos);
+                Set<Position> positions = attackBlockerManager.getPositionBetweenAttackerAndVictim();
+
+                for (Position pos : positions) {
+                    GridCell gridCellInBetween = grid.getGridCell(pos);
+                    List<Observable> listOfSaviour = gridCellInBetween.getDirectMovers(!opponentColorIsBlack);
+                    if (listOfSaviour.size() > 0) {
+                        MovementResponse<Player> response = new MovementResponse<>(CHECK);
+                        response.setExtraField(!opponentColorIsBlack ? stateConfiguration.getPlayerOne() : stateConfiguration.getPlayerTwo());
+                        return response;
+                    }
+                }
+
+                MovementResponse<Player> response = new MovementResponse<Player>(CHECK);
+                response.setExtraField(!opponentColorIsBlack ? stateConfiguration.getPlayerOne() : stateConfiguration.getPlayerTwo());
+                return response;
+
+            } else {
+
+                MovementResponse<Player> response = new MovementResponse<Player>(CHECK);
+                response.setExtraField(!opponentColorIsBlack ? stateConfiguration.getPlayerOne() : stateConfiguration.getPlayerTwo());
+                return response;
+            }
+        }
+        return new MovementResponse(NO_CHECK);
     }
 }

@@ -5,6 +5,7 @@ import Chess.Game.GridResponse;
 import Chess.Game.Player;
 import Chess.Grid.Builder.GridCellFactory;
 import Chess.Grid.Builder.GridCellFactoryAPI;
+import Chess.Move.MoveGenerator.MoveGeneratorAPI;
 import Chess.Move.MovementEncapsulator;
 import Chess.Move.MovementImplementor;
 import Chess.Move.MovementResponse;
@@ -40,8 +41,9 @@ public class Grid implements GameToGridBridgeAbstraction {
                 this.grid[i][j] = gridCellFactory.createGrid(new Position(i,j));
             }
         }
-
+        MoveGeneratorAPI.setGrid(this);
         setBaseBoard();
+        printBoard();
     }
 
     public void setBaseBoard(){

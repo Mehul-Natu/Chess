@@ -19,7 +19,7 @@ public class GameStart implements StateAPI {
         String firstPlayerName = "LOL";
         String secondPlayerName = "YOLO1";
 
-        currentState.
+        //currentState.
 
     }
 

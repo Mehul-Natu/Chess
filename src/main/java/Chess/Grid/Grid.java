@@ -246,27 +246,27 @@ public class Grid implements GameToGridBridgeAbstraction {
 
 
     public void printBoard() {
-        System.out.println("\ta\tb\tc\td\te\tf\tg\th");
-        System.out.println("  ---------------------------------");
+        System.out.println("\t\ta\t\tb\t\tc\t\td\t\te\t\tf\t\tg\t\th");
+        System.out.println("  ---------------------------------------------------------------------");
 
 
         int count = 1;
         for (int i = 0; i < 8; i++) {
             System.out.print(count + " ");
-            System.out.print("| ");
+            System.out.print("\t|\t");
             for (int j = 0; j < 8; j++) {
                 if (grid[i][j].getCurrentPiece() == null) {
-                    System.out.print("  | ");
+                    System.out.print("\t|\t");
                 } else {
-                    System.out.print(grid[i][j].getCurrentPiece().getPiece().getPieceType().getUnicode() + " | ");
+                    System.out.print(grid[i][j].getCurrentPiece().getPiece().getPieceType().getUnicode() + "\t|\t");
                 }
             }
             System.out.print(count);
             count++;
             System.out.println();
-            System.out.println("  ---------------------------------");
+            System.out.println("  ---------------------------------------------------------------------");
         }
-        System.out.println("\ta\tb\tc\td\te\tf\tg\th");
+        System.out.println("\t\ta\t\tb\t\tc\t\td\t\te\t\tf\t\tg\t\th");
         System.out.println();
 
     }

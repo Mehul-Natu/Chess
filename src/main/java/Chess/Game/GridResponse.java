@@ -16,11 +16,20 @@ public class GridResponse {
         SUCCESSFULLY_MOVED,
         ERROR_MOVING,
         CHECKMATED,
-        CHECK;
+        CHECK,
+
+        GAME_STILL_ON;
     }
 
     private final StatusEnum statusEnum;
 
     private String message;
 
+    public StatusEnum getStatusEnum() {
+        return statusEnum;
+    }
+
+    public String getMessage() {
+        return message;
+    }
 }

@@ -1,6 +1,7 @@
 package Chess.Game.States;
 
 import Chess.Game.CurrentStateConfiguration;
+import Chess.Game.Player;
 import Chess.Game.StateAPI;
 
 public class GameStart implements StateAPI {
@@ -19,8 +20,10 @@ public class GameStart implements StateAPI {
         String firstPlayerName = "LOL";
         String secondPlayerName = "YOLO1";
 
-        //currentState.
+        currentState.setPlayerOne(new Player(false, firstPlayerName));
+        currentState.setPlayerTwo(new Player(true, secondPlayerName));
 
+        currentState.setStateAPI(currentState.getPlayerOneMoves());
     }
 
 

@@ -13,7 +13,7 @@ public class Player {
 
 
 
-    Player(boolean black, String name) {
+    public Player(boolean black, String name) {
         this.black = black;
         this.name = name;
     }
@@ -36,5 +36,9 @@ public class Player {
 
     public void setGameResult(GameResult gameResult) {
         this.gameResult = gameResult;
+    }
+
+    public String getName() {
+        return name;
     }
 }

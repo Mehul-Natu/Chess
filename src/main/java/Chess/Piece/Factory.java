@@ -49,7 +49,7 @@ public class Factory {
         knightMoveRuleList.add(new MoveRule(MoveType.jump_blank_kill, new int[] {1, -2}));
         knightMoveRuleList.add(new MoveRule(MoveType.jump_blank_kill, new int[] {1, 2}));
         knightMoveRuleList.add(new MoveRule(MoveType.jump_blank_kill, new int[] {-1, -2}));
-        knightMoveRuleList.add(new MoveRule(MoveType.jump_blank_kill, new int[] {-1, -2}));
+        knightMoveRuleList.add(new MoveRule(MoveType.jump_blank_kill, new int[] {-1, 2}));
         map.put(PieceType.BlackKnight, knightMoveRuleList);
         map.put(PieceType.WhiteKnight, knightMoveRuleList);
 
@@ -71,15 +71,15 @@ public class Factory {
 
 
         List<MoveRule> blackPawnMoveRuleList = new ArrayList<>();
-        blackPawnMoveRuleList.add(new MoveRule(MoveType.blank, new int[] {0, -1}));
-        blackPawnMoveRuleList.add(new MoveRule(MoveType.kill, new int[] {1, -1}));
+        blackPawnMoveRuleList.add(new MoveRule(MoveType.blank, new int[] {-1, 0}));
+        blackPawnMoveRuleList.add(new MoveRule(MoveType.kill, new int[] {-1, 1}));
         blackPawnMoveRuleList.add(new MoveRule(MoveType.kill, new int[] {-1, -1}));
         map.put(PieceType.BlackPawn, blackPawnMoveRuleList);
 
         List<MoveRule> whitePawnMoveRuleList = new ArrayList<>();
-        whitePawnMoveRuleList.add(new MoveRule(MoveType.blank, new int[] {0, 1}));
+        whitePawnMoveRuleList.add(new MoveRule(MoveType.blank, new int[] {1, 0}));
         whitePawnMoveRuleList.add(new MoveRule(MoveType.kill, new int[] {1, 1}));
-        whitePawnMoveRuleList.add(new MoveRule(MoveType.kill, new int[] {-1, 1}));
+        whitePawnMoveRuleList.add(new MoveRule(MoveType.kill, new int[] {1, -1}));
         map.put(PieceType.WhitePawn, whitePawnMoveRuleList);
 
     }

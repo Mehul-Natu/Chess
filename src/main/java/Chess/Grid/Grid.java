@@ -184,6 +184,8 @@ public class Grid implements GameToGridBridgeAbstraction {
 
         subscribeToAll(pieceList,this);
 
+
+
         setPiece(blackPawn1 , new Position(1,0));
         setPiece(blackPawn2 , new Position(1,1));
         setPiece(blackPawn3 , new Position(1,2));
@@ -219,6 +221,8 @@ public class Grid implements GameToGridBridgeAbstraction {
         setPiece(whiteKnight2 , new Position(7,6));
         setPiece(whiteRook2 , new Position(7,7));
 
+        pieceList.forEach(p -> ((PieceManager) p).refreshMoves());
+        System.out.println("hello");
 
     }
 
@@ -240,7 +244,7 @@ public class Grid implements GameToGridBridgeAbstraction {
     }
 
 
-    public void printBoard(){
+    public void printBoard() {
         System.out.println("\ta\tb\tc\td\te\tf\tg\th");
         System.out.println("  ---------------------------------");
 
@@ -289,6 +293,6 @@ public class Grid implements GameToGridBridgeAbstraction {
 
     @Override
     public GridResponse checkForCheckMate(Player lastMoved) {
-        return null;
+        return new GridResponse(GridResponse.StatusEnum.GAME_STILL_ON);
     }
 }

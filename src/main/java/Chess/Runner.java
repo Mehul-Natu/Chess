@@ -1,5 +1,6 @@
 package Chess;
 
+import Chess.Game.ChessGame;
 import Chess.Grid.Grid;
 import Chess.Move.MoveConstants;
 import Chess.Move.MoveGenerator.MoveGeneratorAPI;
@@ -24,25 +25,11 @@ public class Runner {
 
     public static void main(String[] args) {
 
-        System.out.println("Hello");
-        Grid grid = new Grid();
+        ChessGame chessGame = new ChessGame();
 
-
-        Set<PlayableMove> set = new HashSet<>();
-        set.add(new PlayableMove(1, 0, MoveType.blank));
-        set.add(new PlayableMove(1, 0, MoveType.kill));
-        //
-
-
-        //testForKnight();
-        //testForQueen();
-//        testForRookNQueen();
-//        testPieceBuilder();
-
-        AttackerBlockerPositionCalculatorAPI straightLineCalculator = StraightLineCalculator.getInstance();
-        AttackBlockerManager attackBlockerManager = new AttackBlockerManager();
-        attackBlockerManager.configureStrategy(new Position(1,0),new Position(5,0));
-        attackBlockerManager.getPositionBetweenAttackerAndVictim();
+        while (true) {
+            chessGame.operate();
+        }
 
     }
 

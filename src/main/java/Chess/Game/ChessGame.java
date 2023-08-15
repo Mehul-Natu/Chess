@@ -11,30 +11,24 @@ public class ChessGame implements StateAPI  {
 
     private CurrentStateConfiguration stateConfiguration;
 
-    private StateAPI gameEnd;
-    private StateAPI gameStart;
-    private StateAPI playerOneMoves;
-    private StateAPI playerTwoMoves;
-    private StateAPI resultState;
 
-    private StateAPI checkOrCheckMate;
 
 
     public ChessGame() {
-        stateConfiguration = new CurrentStateConfiguration();
-        gameEnd = new GameEnd(stateConfiguration);
-        gameStart = new GameStart(stateConfiguration);
-        playerOneMoves = new PlayerOneMoves(stateConfiguration);
-        playerTwoMoves = new PlayerTwoMoves(stateConfiguration);
-        resultState = new ResultsState(stateConfiguration);
-        checkOrCheckMate =  new CheckOrCheckmate(stateConfiguration);
 
-        stateConfiguration.setStateAPI(gameStart);
+        this.stateConfiguration = new CurrentStateConfiguration();
+        this.stateConfiguration.setGameEnd(new GameEnd(stateConfiguration));
+        this.stateConfiguration.setGameStart(new GameStart(stateConfiguration));
+        this.stateConfiguration.setPlayerOneMoves(new PlayerOneMoves(stateConfiguration));
+        this.stateConfiguration.setPlayerTwoMoves(new PlayerTwoMoves(stateConfiguration));
+        this.stateConfiguration.setResultState(new ResultsState(stateConfiguration));
+        this.stateConfiguration.setCheckOrCheckMate(new CheckOrCheckmate(stateConfiguration));
+
+        this.stateConfiguration.setStateAPI(stateConfiguration.getGameStart());
 
     }
 
     public void operate(){
-
         this.stateConfiguration.getStateAPI().operate();
     }
 

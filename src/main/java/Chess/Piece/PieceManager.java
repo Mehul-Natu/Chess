@@ -97,6 +97,9 @@ public class PieceManager implements Observable {
     }
 
     public void refreshMoves() {
+        if (WhiteKnight.equals(this.piece.getPieceType())) {
+            System.out.println("hello");
+        }
         Set<PlayableMove> playableMoves = new HashSet<>();
         Set<IndirectMove> indirectMoves = new HashSet<>();
         for (MoveRule rule : piece.getMoveRuleList()) {

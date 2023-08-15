@@ -78,6 +78,7 @@ public class MovementEncapsulator implements MovementImplementor {
         }
         // everything is checked now
         //to check everything after this
+        grid.getGridCell(startingPos).setCurrentPiece(null);
         grid.setPiece(currentPiece, endingPos);
         //currentPiece.setCurrentPosition(endingPos);
         return new MovementResponse(MOVED_SUCCESSFULLY);

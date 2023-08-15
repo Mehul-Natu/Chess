@@ -115,7 +115,6 @@ public class GridCell implements Observer {
     }
 
     public void setCurrentPiece(PieceManager currentPiece) {
-
         if (this.currentPiece != null) {
             runDetailStatsForCurrentPiece();
         } else {

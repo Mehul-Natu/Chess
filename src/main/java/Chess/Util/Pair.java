@@ -5,8 +5,14 @@ public class Pair<X, Y> {
     X fieldOne;
     Y FieldTwo;
 
-    public Pair(X fieldOne, Y fieldTwo) {
+    public Pair() {
+    }
+
+    public void setFieldOne(X fieldOne) {
         this.fieldOne = fieldOne;
+    }
+
+    public void setFieldTwo(Y fieldTwo) {
         FieldTwo = fieldTwo;
     }
 

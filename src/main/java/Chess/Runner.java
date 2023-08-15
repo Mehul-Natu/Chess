@@ -1,6 +1,7 @@
 package Chess;
 
 import Chess.Game.ChessGame;
+import Chess.Game.Command.Command;
 import Chess.Grid.Grid;
 import Chess.Move.MoveConstants;
 import Chess.Move.MoveGenerator.MoveGeneratorAPI;
@@ -30,6 +31,8 @@ public class Runner {
 
         /*
         ChessGame chessGame = new ChessGame();
+
+        Command<String, String> command;
 
         while (true) {
             chessGame.operate();

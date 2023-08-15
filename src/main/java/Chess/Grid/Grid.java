@@ -14,7 +14,7 @@ import Chess.Piece.Builder.PieceBuilder;
 import Chess.Piece.Builder.PieceFactory;
 import Chess.Piece.Builder.PieceManagerBuilder;
 import Chess.Piece.Builder.PieceManagerFactory;
-import Chess.Piece.Factory;
+import Chess.Piece.MoveRuleFactory;
 import Chess.Piece.Observable;
 import Chess.Piece.PieceManager;
 import Chess.Piece.PieceType;
@@ -49,7 +49,7 @@ public class Grid implements GameToGridBridgeAbstraction {
 
     public void setBaseBoard(){
         PieceBuilder pieceBuilder = new PieceBuilder();
-        pieceBuilder.setPieceType(PieceType.BlackQueen).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackQueen));
+        pieceBuilder.setPieceType(PieceType.BlackQueen).setMoveRuleList(MoveRuleFactory.getInstance().getMoveList(PieceType.BlackQueen));
         PieceFactory pieceFactory = PieceFactory.getInstance();
         PieceManagerBuilder pieceManagerBuilder = new PieceManagerBuilder();
         pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
@@ -60,29 +60,29 @@ public class Grid implements GameToGridBridgeAbstraction {
         //Setting Black Pieces
         PieceManager blackQueen = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
-        pieceBuilder.setPieceType(PieceType.BlackKing).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackKing));
+        pieceBuilder.setPieceType(PieceType.BlackKing).setMoveRuleList(MoveRuleFactory.getInstance().getMoveList(PieceType.BlackKing));
         pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager blackKing = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
-        pieceBuilder.setPieceType(PieceType.BlackRook).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackRook));
+        pieceBuilder.setPieceType(PieceType.BlackRook).setMoveRuleList(MoveRuleFactory.getInstance().getMoveList(PieceType.BlackRook));
         pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager blackRook1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
         PieceManager blackRook2 = blackRook1.clone();
 
-        pieceBuilder.setPieceType(PieceType.BlackKnight).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackKnight));
+        pieceBuilder.setPieceType(PieceType.BlackKnight).setMoveRuleList(MoveRuleFactory.getInstance().getMoveList(PieceType.BlackKnight));
         pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager blackKnight1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
         PieceManager blackKnight2 = blackKnight1.clone();
 
-        pieceBuilder.setPieceType(PieceType.BlackBishop).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackBishop));
+        pieceBuilder.setPieceType(PieceType.BlackBishop).setMoveRuleList(MoveRuleFactory.getInstance().getMoveList(PieceType.BlackBishop));
         pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager blackBishop1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
         PieceManager blackBishop2 = blackBishop1.clone();
 
-        pieceBuilder.setPieceType(PieceType.BlackPawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.BlackPawn));
+        pieceBuilder.setPieceType(PieceType.BlackPawn).setMoveRuleList(MoveRuleFactory.getInstance().getMoveList(PieceType.BlackPawn));
         pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager blackPawn1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
@@ -102,33 +102,33 @@ public class Grid implements GameToGridBridgeAbstraction {
 
 
         //Setting White Pieces
-        pieceBuilder.setPieceType(PieceType.WhiteQueen).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhiteQueen));
+        pieceBuilder.setPieceType(PieceType.WhiteQueen).setMoveRuleList(MoveRuleFactory.getInstance().getMoveList(PieceType.WhiteQueen));
         pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager whiteQueen = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
-        pieceBuilder.setPieceType(PieceType.WhiteKing).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhiteKing));
+        pieceBuilder.setPieceType(PieceType.WhiteKing).setMoveRuleList(MoveRuleFactory.getInstance().getMoveList(PieceType.WhiteKing));
         pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager whiteKing = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
-        pieceBuilder.setPieceType(PieceType.WhiteRook).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhiteRook));
+        pieceBuilder.setPieceType(PieceType.WhiteRook).setMoveRuleList(MoveRuleFactory.getInstance().getMoveList(PieceType.WhiteRook));
         pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager whiteRook1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
         PieceManager whiteRook2 = whiteRook1.clone();
 
-        pieceBuilder.setPieceType(PieceType.WhiteKnight).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhiteKnight));
+        pieceBuilder.setPieceType(PieceType.WhiteKnight).setMoveRuleList(MoveRuleFactory.getInstance().getMoveList(PieceType.WhiteKnight));
         pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager whiteKnight1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
         PieceManager whiteKnight2 = whiteKnight1.clone();
 
-        pieceBuilder.setPieceType(PieceType.WhiteBishop).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhiteBishop));
+        pieceBuilder.setPieceType(PieceType.WhiteBishop).setMoveRuleList(MoveRuleFactory.getInstance().getMoveList(PieceType.WhiteBishop));
         pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager whiteBishop1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 
         PieceManager whiteBishop2 = whiteBishop1.clone();
 
-        pieceBuilder.setPieceType(PieceType.WhitePawn).setMoveRuleList(Factory.getInstance().getMoveList(PieceType.WhitePawn));
+        pieceBuilder.setPieceType(PieceType.WhitePawn).setMoveRuleList(MoveRuleFactory.getInstance().getMoveList(PieceType.WhitePawn));
         pieceManagerBuilder.reset().setPiece(pieceFactory.createPiece(pieceBuilder));
         PieceManager whitePawn1 = pieceManagerFactory.createPieceManager(pieceManagerBuilder);
 

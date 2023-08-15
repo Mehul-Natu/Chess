@@ -3,20 +3,18 @@ package Chess.Piece;
 import Chess.Move.MoveConstants;
 import Chess.Move.MoveRule;
 import Chess.Move.MoveType;
-import Chess.Piece.Builder.PieceBuilder;
-import Chess.Piece.Builder.PieceFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Factory {
+public class MoveRuleFactory {
 
     Map<PieceType, List<MoveRule>> map = new HashMap<>();
 
-    public static Factory instance;
-    private Factory() {
+    public static MoveRuleFactory instance;
+    private MoveRuleFactory() {
         List<MoveRule> queenMoveRuleList = new ArrayList<>();
         queenMoveRuleList.add(new MoveRule(MoveType.blank_kill, new int[] {0, MoveConstants.INFINITE_ADD}));
         queenMoveRuleList.add(new MoveRule(MoveType.blank_kill, new int[] {0, MoveConstants.INFINITE_SUBTRACT}));
@@ -83,9 +81,9 @@ public class Factory {
         map.put(PieceType.WhitePawn, whitePawnMoveRuleList);
 
     }
-    public synchronized static Factory getInstance() {
+    public synchronized static MoveRuleFactory getInstance() {
         if (instance == null) {
-            instance = new Factory();
+            instance = new MoveRuleFactory();
         }
         return instance;
     }
